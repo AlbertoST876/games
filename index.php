@@ -3,8 +3,7 @@
 <html lang="es">
     <head>
         <?php include "./modules/html/head.php"; ?>
-
-        <title>Games - Inicio</title>
+        <title>AlbertoST Informática - Games - Inicio</title>
     </head>
 
     <body>

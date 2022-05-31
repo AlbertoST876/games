@@ -9,7 +9,7 @@ Puedes probarlo en vivo en mi sitio WEB **[https://albertost.sytes.net/apps/game
 ## Requisitos
 
 - Apache - 2.4.53
-- PHP - 8.1.4
+- PHP - 8.1.6
 - MySQL - 8.0.28 o MariaDB - 10.6.7
 
 ## Instalación
