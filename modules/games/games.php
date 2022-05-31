@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 01-04-2022 14:12:57
+ * @ Modified time: 31-05-2022 11:39:12
  * @ Description: Funciones para obtener los juegos para la página de juegos, incluida la paginación de los mismos
  */
 
@@ -27,8 +27,8 @@ function ObtenerJuegos() {
 /**
  * Pagina los juegos en diferentes páginas, sino se le especifica cantidad, por defecto es 18
  *
- * @param Mysqli $connect
- * @param Int $cantidad
+ * @param mysqli $connect
+ * @param int $cantidad
  * @return void
  */
 function PaginarJuegos($connect, $cantidad = 18) {

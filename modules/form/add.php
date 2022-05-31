@@ -3,16 +3,16 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 12-04-2022 02:24:29
+ * @ Modified time: 31-05-2022 11:45:19
  * @ Description: Función para subir un juego a la base de datos, usado en la página agregar/reportar
  */
 
 /**
  * Sube un juego dado por un usuario a la base de datos
  *
- * @param String $nombre
- * @param File $imagen
- * @param File $torrent
+ * @param string $nombre
+ * @param file $imagen
+ * @param file $torrent
  * @return void
  */
 function SubirJuego($nombre, $imagen, $torrent) {
@@ -26,10 +26,10 @@ function SubirJuego($nombre, $imagen, $torrent) {
             $nombre = mysqli_real_escape_string($connect, $nombre);
 
             // Imagen del Juego
-            $rutaimagen = SubirArchivo($_FILES["imagen"], "./resources/img/");
+            $rutaimagen = SubirArchivo($imagen, "./resources/img/");
 
             // Torrent del Juego
-            $rutatorrent = SubirArchivo($_FILES["torrent"], "./resources/torrent/");
+            $rutatorrent = SubirArchivo($torrent, "./resources/torrent/");
 
             // Fecha y Hora
             $date = date("d/m/Y - H:i:s");
@@ -41,11 +41,11 @@ function SubirJuego($nombre, $imagen, $torrent) {
             if ($result) {
                 echo "<p>Se ha registrado su juego con éxito</p>";
             } else {
-                echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+                echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
             }
         }
     } else {
-        echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
     }
 
     mysqli_close($connect);
@@ -54,9 +54,9 @@ function SubirJuego($nombre, $imagen, $torrent) {
 /**
  * Sube un archivo al sistema de archivos haciendo uso de la variable $_FILES
  *
- * @param Array $archivo
- * @param String $rutaguardado
- * @return String
+ * @param file $archivo
+ * @param string $rutaguardado
+ * @return string
  */
 function SubirArchivo($archivo, $rutaguardado) {
     move_uploaded_file($archivo["tmp_name"], $rutaguardado . "/" . $archivo["name"]);

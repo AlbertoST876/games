@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 12-04-2022 02:24:55
+ * @ Modified time: 31-05-2022 11:46:01
  * @ Description: Funciones que actúan en el formulario de reporte en la página agregar/reportar
  */
 
@@ -23,7 +23,7 @@ function ObtenerListaJuegos() {
             echo "<option value=" . $row["id"] . ">" . $row["nombre"] . "</option>";
         }
     } else {
-        echo "Ha ocurrido un error, intentalo de nuevo mas tarde";
+        echo "Ha ocurrido un error, inténtalo de nuevo mas tarde";
     }
     
     mysqli_close($connect);
@@ -32,8 +32,8 @@ function ObtenerListaJuegos() {
 /**
  * Reporta un juego mandando un mensaje que se almacena en la base de datos
  *
- * @param Int $juego
- * @param String $mensaje
+ * @param int $juego
+ * @param string $mensaje
  * @return void
  */
 function ReportarJuego($juego, $mensaje) {
@@ -56,11 +56,11 @@ function ReportarJuego($juego, $mensaje) {
             if ($result) {
                 echo "<p>Tu reporte se a enviado y será validado por un administrador, gracias</p>";
             } else {
-                echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+                echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
             }
         }
     } else {
-        echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
     }
 
     mysqli_close($connect);

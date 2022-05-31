@@ -3,14 +3,14 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 31-03-2022 16:01:57
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 12-04-2022 02:25:09
+ * @ Modified time: 31-05-2022 11:40:56
  * @ Description: Función que realiza la búsqueda de juegos por su nombre, usada en search
  */
 
 /**
  * Devuelve el catálogo de juegos que coincidan con la búsqueda realizada
  *
- * @param String $juego
+ * @param string $juego
  * @return void
  */
 function BuscarJuegos($juego) {
@@ -32,11 +32,11 @@ function BuscarJuegos($juego) {
                     echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
                 } 
             } else {
-                echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+                echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
             }
         }
     } else {
-        echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
     }
 
     mysqli_close($connect);
