@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 31-05-2022 11:38:32
+ * @ Modified time: 01-06-2022 11:35:32
  * @ Description: Función para obtener los juegos destacados para la página de inicio
  */
 
@@ -12,7 +12,7 @@
  *
  * @return void
  */
-function ObtenerJuegosDestacados() {
+function ObtenerJuegosDestacados():void {
     include "./modules/db/db.php";
 
     if ($connect) {

@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 31-05-2022 11:39:12
+ * @ Modified time: 01-06-2022 11:35:12
  * @ Description: Funciones para obtener los juegos para la página de juegos, incluida la paginación de los mismos
  */
 
@@ -12,7 +12,7 @@
  *
  * @return void
  */
-function ObtenerJuegos() {
+function ObtenerJuegos():void {
     include "./modules/db/db.php";
 
     if ($connect) {
@@ -31,7 +31,7 @@ function ObtenerJuegos() {
  * @param int $cantidad
  * @return void
  */
-function PaginarJuegos($connect, $cantidad = 18) {
+function PaginarJuegos(mysqli $connect, int $cantidad = 18):void {
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
     $TotalRegistro = ceil(mysqli_num_rows(mysqli_query($connect, "SELECT nombre, imagen, torrent FROM games")) / $cantidad);

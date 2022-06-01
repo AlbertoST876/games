@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 01-06-2022 08:52:22
+ * @ Modified time: 01-06-2022 11:34:43
  * @ Description: Funciones que actúan en el formulario de reporte en la página agregar/reportar
  */
 
@@ -12,7 +12,7 @@
  *
  * @return void
  */
-function ObtenerListaJuegos() {
+function ObtenerListaJuegos():void {
     include "./modules/db/db.php";
 
     $SQL = "SELECT id, nombre FROM games ORDER BY nombre ASC";
@@ -36,7 +36,7 @@ function ObtenerListaJuegos() {
  * @param string $mensaje
  * @return void
  */
-function ReportarJuego($juego, $mensaje) {
+function ReportarJuego(int $juego, string $mensaje):void {
     include "./modules/db/db.php";
 
     if ($connect) {

@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 31-05-2022 11:45:19
+ * @ Modified time: 01-06-2022 11:34:13
  * @ Description: Función para subir un juego a la base de datos, usado en la página agregar/reportar
  */
 
@@ -11,11 +11,11 @@
  * Sube un juego dado por un usuario a la base de datos
  *
  * @param string $nombre
- * @param file $imagen
- * @param file $torrent
+ * @param array $imagen
+ * @param array $torrent
  * @return void
  */
-function SubirJuego($nombre, $imagen, $torrent) {
+function SubirJuego(string $nombre, array $imagen, array $torrent):void {
     include "./modules/db/db.php";
 
     if ($connect) {
@@ -54,11 +54,11 @@ function SubirJuego($nombre, $imagen, $torrent) {
 /**
  * Sube un archivo al sistema de archivos haciendo uso de la variable $_FILES
  *
- * @param file $archivo
+ * @param array $archivo
  * @param string $rutaguardado
  * @return string
  */
-function SubirArchivo($archivo, $rutaguardado) {
+function SubirArchivo(array $archivo, string $rutaguardado):string {
     move_uploaded_file($archivo["tmp_name"], $rutaguardado . "/" . $archivo["name"]);
 
     return $rutaguardado . $archivo["name"];

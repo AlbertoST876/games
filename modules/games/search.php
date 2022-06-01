@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 31-03-2022 16:01:57
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 31-05-2022 11:40:56
+ * @ Modified time: 01-06-2022 11:35:20
  * @ Description: Función que realiza la búsqueda de juegos por su nombre, usada en search
  */
 
@@ -13,7 +13,7 @@
  * @param string $juego
  * @return void
  */
-function BuscarJuegos($juego) {
+function BuscarJuegos(string $juego):void {
     include "./modules/db/db.php";
 
     if ($connect) {
