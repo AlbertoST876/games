@@ -3,7 +3,7 @@
  * @ Author: Alberto Sanchez Torreblanca
  * @ Create Time: 30-03-2022 09:11:38
  * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 31-05-2022 11:46:01
+ * @ Modified time: 01-06-2022 08:52:22
  * @ Description: Funciones que actúan en el formulario de reporte en la página agregar/reportar
  */
 
