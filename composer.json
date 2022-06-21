@@ -1,0 +1,29 @@
+{
+    "name": "albertost876/games",
+    "description": "Brind Crack Games to the WEB",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "files": [
+            "src/functions/add.php",
+            "src/functions/featured.php",
+            "src/functions/games.php",
+            "src/functions/report.php",
+            "src/functions/search.php"
+        ],
+        "psr-4": {
+            "Games\\Classes\\": "src/classes/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "src/functions/add.php",
+            "src/functions/featured.php",
+            "src/functions/games.php",
+            "src/functions/report.php",
+            "src/functions/search.php"
+        ],
+        "psr-4": {
+            "Games\\Classes\\": "src/classes/"
+        }
+    }
+}
