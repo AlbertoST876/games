@@ -1,46 +1,34 @@
 <?php
-/**
- * @ Author: Alberto Sanchez Torreblanca
- * @ Create Time: 30-03-2022 09:11:38
- * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 01-06-2022 11:35:12
- * @ Description: Funciones para obtener los juegos para la página de juegos, incluida la paginación de los mismos
- */
+
+use Games\Classes\DB;
 
 /**
  * Devuelve el catálogo con todos los juegos
  *
  * @return void
  */
-function ObtenerJuegos():void {
-    include "./modules/db/db.php";
+function ObtenerJuegos(): void {
+    $connect = new DB();
 
-    if ($connect) {
-        PaginarJuegos($connect);
-    } else {
-        echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
-    }
-
-    mysqli_close($connect);
+    PaginarJuegos($connect);
 }
 
 /**
  * Pagina los juegos en diferentes páginas, sino se le especifica cantidad, por defecto es 18
  *
- * @param mysqli $connect
- * @param int $cantidad
+ * @param DB $connect Conexión con la Base de Datos
+ * @param int $cantidad Cantidad de juegos por página
  * @return void
  */
-function PaginarJuegos(mysqli $connect, int $cantidad = 18):void {
+function PaginarJuegos(DB $connect, int $cantidad = 18): void {
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
-    $TotalRegistro = ceil(mysqli_num_rows(mysqli_query($connect, "SELECT nombre, imagen, torrent FROM games")) / $cantidad);
+    $TotalRegistro = ceil(count($connect -> Select("SELECT nombre, imagen, torrent FROM games")) / $cantidad);
 
-    $SQL = "SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad;
-    $result = mysqli_query($connect, $SQL);
+    $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
+    for ($i = 0; $i < count($result); $i++) {
+        echo "<div class='game'><a href=" . $result[$i]["torrent"] . "><img src=" . $result[$i]["imagen"] . "></a><p>" . $result[$i]["nombre"] . "</p></div>";
     }
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
@@ -60,7 +48,7 @@ function PaginarJuegos(mysqli $connect, int $cantidad = 18):void {
                 echo "<li class='active'><a href='?pag=" . $i . "'>" . $i . "</a></li>";
             } else {
                 echo "<li><a href='?pag=" . $i . "'>" . $i . "</a></li>";
-            }     		
+            }
         }
     }
     

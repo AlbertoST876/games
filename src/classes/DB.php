@@ -27,6 +27,10 @@ class DB {
         }
     }
 
+    public function clearString(string $string) {
+        return $this -> connect -> real_escape_string($string);
+    }
+
     private function executeStatement($query = "", $params = []) {
         try {
             $stmt = $this -> connect -> prepare($query);
@@ -47,7 +51,7 @@ class DB {
             $stmt = $this -> executeStatement($query, $params);
             $stmt -> close();
 
-            return $this -> connect -> insert_id;		
+            return true; // $this -> connect -> insert_id		
         } catch (Exception $error) {
             throw new Exception($error -> getMessage());
         }
@@ -71,7 +75,9 @@ class DB {
 
     public function Update($query = "", $params = []) {
         try {
-            $this -> executeStatement($query, $params) -> close();		
+            $this -> executeStatement($query, $params) -> close();
+            
+            return true;
         } catch (Exception $error) {
             throw new Exception($error -> getMessage());
         }
@@ -82,6 +88,8 @@ class DB {
     public function Remove($query = "", $params = []) {
         try {
             $this -> executeStatement($query, $params) -> close();
+
+            return true;
         } catch (Exception $error) {
             throw new Exception($error -> getMessage());
         }

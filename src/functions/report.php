@@ -1,69 +1,46 @@
 <?php
-/**
- * @ Author: Alberto Sanchez Torreblanca
- * @ Create Time: 30-03-2022 09:11:38
- * @ Modified by: Alberto Sanchez Torreblanca
- * @ Modified time: 01-06-2022 11:34:43
- * @ Description: Funciones que actúan en el formulario de reporte en la página agregar/reportar
- */
+
+use Games\Classes\DB;
 
 /**
- * Obtiene la lista de juegos que hay en la base de datos
+ * Obtiene la lista de juegos que hay en la Base de Datos
  *
  * @return void
  */
-function ObtenerListaJuegos():void {
-    include "./modules/db/db.php";
-
-    $SQL = "SELECT id, nombre FROM games ORDER BY nombre ASC";
-    $result = mysqli_query($connect, $SQL);
+function ObtenerListaJuegos(): void {
+    $connect = new DB();
+    $result = $connect -> Select("SELECT id, nombre FROM games ORDER BY nombre ASC");
     
-    if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<option value=" . $row["id"] . ">" . $row["nombre"] . "</option>";
-        }
-    } else {
-        echo "Ha ocurrido un error, inténtalo de nuevo mas tarde";
+    for ($i = 0; $i < count($result); $i++) {
+        echo "<option value=" . $result[$i]["id"] . ">" . $result[$i]["nombre"] . "</option>";
     }
-    
-    mysqli_close($connect);
 }
 
 /**
- * Reporta un juego mandando un mensaje que se almacena en la base de datos
+ * Reporta un juego mandando un mensaje que se almacena en la Base de Datos
  *
- * @param int $juego
- * @param string $mensaje
+ * @param int $juego ID del juego
+ * @param string $mensaje Mensaje del reporte
  * @return void
  */
-function ReportarJuego(int $juego, string $mensaje):void {
-    include "./modules/db/db.php";
-
-    if ($connect) {
-        if (empty($juego) || empty($mensaje)) {
-            echo "<p>Faltan uno o mas campos por rellenar</p>";
-        } else {
-            // Limpiar caracteres especiales
-            $mensaje = mysqli_real_escape_string($connect, $mensaje);
-
-            // Fecha y Hora
-            $date = date("d/m/Y - H:i:s");
-
-            // Registrar en la Base de Datos
-            $SQL = "INSERT INTO reports (juego, mensaje, fecha) VALUES ('$juego', '$mensaje', '$date')";
-            $result = mysqli_query($connect, $SQL);
-
-            if ($result) {
-                echo "<p>Tu reporte se a enviado y será validado por un administrador, gracias</p>";
-            } else {
-                echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
-            }
-        }
+function ReportarJuego(int $juego, string $mensaje): void {
+    if (empty($juego) || empty($mensaje)) {
+        echo "<p>Faltan uno o mas campos por rellenar</p>";
     } else {
-        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
-    }
+        $connect = new DB();
 
-    mysqli_close($connect);
+        // Limpiar caracteres especiales
+        $mensaje = $connect -> clearString($mensaje);
+
+        // Registrar en la Base de Datos
+        $result = $connect -> Insert("INSERT INTO reports (juego, mensaje) VALUES ('$juego', '$mensaje')");
+
+        if ($result) {
+            echo "<p>Tu reporte se a enviado y será validado por un administrador, gracias</p>";
+        } else {
+            echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
+        }
+    }
 }
 
 ?>

@@ -59,7 +59,11 @@
                         <select name="juego" id="juego" required>
                             <option value="" selected disabled hidden>Selecciona un Juego</option>
 
-                            <?php ObtenerListaJuegos(); ?>
+                            <?php
+                                include "./vendor/autoload.php";
+                                
+                                ObtenerListaJuegos();
+                            ?>
                         </select>
 
                         <br/>
@@ -74,8 +78,6 @@
                 </div>
 
                 <?php
-                    include "./vendor/autoload.php";
-                    
                     if (isset($_POST["upload"])) SubirJuego($_POST["juego"], $_FILES["imagen"], $_FILES["torrent"]);
                     if (isset($_POST["report"])) ReportarJuego($_POST["juego"], $_POST["mensaje"]);
                 ?>
