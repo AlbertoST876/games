@@ -1,3 +1,4 @@
+<?php include "./vendor/autoload.php"; ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -38,11 +39,7 @@
             </div>
 
             <div class="games">
-                <?php 
-                    include "./vendor/autoload.php";
-                    
-                    isset($_POST["search"]) ? BuscarJuegos($_POST["juego"]) : ObtenerJuegos();
-                ?>
+                <?php isset($_POST["search"]) ? BuscarJuegos($_POST["juego"]) : ObtenerJuegos(); ?>
             </div>
         </main>
     </body>

@@ -1,3 +1,4 @@
+<?php include "./vendor/autoload.php"; ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -59,11 +60,7 @@
                         <select name="juego" id="juego" required>
                             <option value="" selected disabled hidden>Selecciona un Juego</option>
 
-                            <?php
-                                include "./vendor/autoload.php";
-                                
-                                ObtenerListaJuegos();
-                            ?>
+                            <?php ObtenerListaJuegos(); ?>
                         </select>
 
                         <br/>

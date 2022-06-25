@@ -1,3 +1,4 @@
+<?php include "./vendor/autoload.php"; ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -30,11 +31,7 @@
             <h1 class="destacados">Juegos Destacados</h1>
 
             <div class="games">
-                <?php
-                    include "./vendor/autoload.php";
-                    
-                    ObtenerJuegosDestacados();
-                ?>
+                <?php ObtenerJuegosDestacados(); ?>
             </div>            
         </main>
     </body>
