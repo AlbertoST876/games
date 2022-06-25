@@ -9,10 +9,10 @@ use mysqli;
  */
 class DB {
     // Rellene los siguientes campos para la conexión a su Base de Datos
-    private string $hostname = "localhost"; // Servidor - Por defecto: "localhost"
-    private string $username = "root"; // Usuario - Por defecto: "root"
+    private string $hostname = ""; // Servidor - Por defecto: "localhost"
+    private string $username = ""; // Usuario - Por defecto: "root"
     private string $password = ""; // Contraseña
-    private string $database = "es_games"; // Base de Datos - Por defecto: "es_games"
+    private string $database = ""; // Base de Datos - Por defecto: "es_games"
 
     private mysqli $connect;
 
