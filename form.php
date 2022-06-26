@@ -34,21 +34,16 @@
 
                     <form action="form.php" method="POST" enctype="multipart/form-data">
                         <label for="juego">Nombre del Juego:</label>
-                        <input type="text" name="juego" id="juego" required>
-                            
-                        <br/>
+                        <input type="text" name="juego" id="juego" maxlength="50" required>
 
                         <label for="imagen">Imagen del Juego:</label>
                         <input type="file" name="imagen" id="imagen" accept="image/*" size="1024" required>
-
-                        <br/>
                             
                         <label for="torrent">Torrent del Juego:</label>
                         <input type="file" name="torrent" id="torrent" accept=".torrent" size="1024" required>
 
-                        <br/>
-
-                        <input type="submit" name="upload" value="Enviar"><input type="reset" value="Resetear">
+                        <input type="submit" name="upload" value="Enviar">
+                        <input type="reset" value="Resetear">
                     </form>
                 </div>
 
@@ -63,14 +58,11 @@
                             <?php ObtenerListaJuegos(); ?>
                         </select>
 
-                        <br/>
-
                         <label for="mensaje">¿Por que quieres reportar este juego?</label> <br/>
-                        <input type="text" name="mensaje" id="mensaje" required>
+                        <input type="text" name="mensaje" id="mensaje" maxlength="255" required>
 
-                        <br/>
-
-                        <input type="submit" name="report" value="Enviar"><input type="reset" value="Resetear">
+                        <input type="submit" name="report" value="Enviar">
+                        <input type="reset" value="Resetear">
                     </form>
                 </div>
 

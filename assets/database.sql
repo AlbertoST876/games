@@ -32,8 +32,8 @@ CREATE TABLE `games` (
   `nombre` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `imagen` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `torrent` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `destacado` boolean CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 0,
-  `fecha` datetime CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `destacado` enum('T', 'F') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'F',
+  `fecha` timestamp CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -44,8 +44,8 @@ CREATE TABLE `games` (
 CREATE TABLE `reports` (
   `id` int NOT NULL,
   `juego` int NOT NULL,
-  `mensaje` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `fecha` datetime CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `mensaje` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `fecha` timestamp CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -57,12 +57,15 @@ CREATE TABLE `reports` (
 --
 -- Indices de la tabla `games`
 --
-ALTER TABLE `games` ADD PRIMARY KEY (`id`);
+ALTER TABLE `games`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `reports`
 --
-ALTER TABLE `reports` ADD PRIMARY KEY (`id`), ADD KEY `fk_IDJuego_idx` (`juego`);
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_IDJuego_idx` (`juego`);
 
 -- --------------------------------------------------------
 
@@ -73,12 +76,14 @@ ALTER TABLE `reports` ADD PRIMARY KEY (`id`), ADD KEY `fk_IDJuego_idx` (`juego`)
 --
 -- AUTO_INCREMENT de la tabla `games`
 --
-ALTER TABLE `games` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+ALTER TABLE `games`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 55;
 
 --
 -- AUTO_INCREMENT de la tabla `reports`
 --
-ALTER TABLE `reports` MODIFY `id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `reports`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 -- --------------------------------------------------------
 
@@ -89,7 +94,8 @@ ALTER TABLE `reports` MODIFY `id` int NOT NULL AUTO_INCREMENT;
 --
 -- Filtros para la tabla `reports`
 --
-ALTER TABLE `reports` ADD CONSTRAINT `fk_IDJuego` FOREIGN KEY (`juego`) REFERENCES `games` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `reports`
+  ADD CONSTRAINT `fk_IDJuego` FOREIGN KEY (`juego`) REFERENCES `games` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- --------------------------------------------------------
 
