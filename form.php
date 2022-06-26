@@ -33,17 +33,25 @@
                     <h1>Agregar un Juego</h1>
 
                     <form action="form.php" method="POST" enctype="multipart/form-data">
-                        <label for="juego">Nombre del Juego:</label>
-                        <input type="text" name="juego" id="juego" maxlength="50" required>
+                        <div>
+                            <label for="juego">Nombre del Juego:</label>
+                            <input type="text" name="juego" id="juego" maxlength="50" required>
+                        </div>
 
-                        <label for="imagen">Imagen del Juego:</label>
-                        <input type="file" name="imagen" id="imagen" accept="image/*" size="1024" required>
-                            
-                        <label for="torrent">Torrent del Juego:</label>
-                        <input type="file" name="torrent" id="torrent" accept=".torrent" size="1024" required>
+                        <div>
+                            <label for="imagen">Imagen del Juego:</label>
+                            <input type="file" name="imagen" id="imagen" accept="image/*" size="1024" required>
+                        </div>
 
-                        <input type="submit" name="upload" value="Enviar">
-                        <input type="reset" value="Resetear">
+                        <div>
+                            <label for="torrent">Torrent del Juego:</label>
+                            <input type="file" name="torrent" id="torrent" accept=".torrent" size="1024" required>
+                        </div>
+
+                        <div>
+                            <input type="submit" name="upload" value="Enviar">
+                            <input type="reset" value="Resetear">
+                        </div>
                     </form>
                 </div>
 
@@ -51,18 +59,27 @@
                     <h1>Reportar un Juego</h1>
 
                     <form action="form.php" method="POST">
-                        <label for="juego">Nombre del Juego:</label>
-                        <select name="juego" id="juego" required>
-                            <option value="" selected disabled hidden>Selecciona un Juego</option>
+                        <div>
+                            <label for="juego">Nombre del Juego:</label>
+                            <select name="juego" id="juego" required>
+                                <option value="" selected disabled hidden>Selecciona un Juego</option>
 
-                            <?php ObtenerListaJuegos(); ?>
-                        </select>
+                                <?php ObtenerListaJuegos(); ?>
+                            </select>
+                        </div>
 
-                        <label for="mensaje">¿Por que quieres reportar este juego?</label> <br/>
-                        <input type="text" name="mensaje" id="mensaje" maxlength="255" required>
+                        <div>
+                            <label for="mensaje">¿Por que quieres reportar este juego?</label>
+                        </div>
 
-                        <input type="submit" name="report" value="Enviar">
-                        <input type="reset" value="Resetear">
+                        <div>
+                            <input type="text" name="mensaje" id="mensaje" maxlength="255" required>
+                        </div>
+
+                        <div>
+                            <input type="submit" name="report" value="Enviar">
+                            <input type="reset" value="Resetear">
+                        </div>
                     </form>
                 </div>
 
