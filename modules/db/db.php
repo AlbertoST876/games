@@ -8,10 +8,10 @@
  */
 
 // Rellene los siguientes campos para la conexión a su base de datos
-$hostname = ""; // Servidor - Por defecto: "localhost"
-$username = ""; // Usuario - Por defecto: "root"
-$password = ""; // Contraseña
-$database = ""; // Base de Datos - Por defecto: "es_games"
+$hostname = "localhost"; // Servidor - Por defecto: "localhost"
+$username = "root"; // Usuario - Por defecto: "root"
+$password = "AlbertoSanTor5517"; // Contraseña
+$database = "es_games"; // Base de Datos - Por defecto: "es_games"
 
 $connect = mysqli_connect($hostname, $username, $password, $database);
 mysqli_set_charset($connect, "UTF8");
