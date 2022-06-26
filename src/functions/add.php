@@ -16,16 +16,11 @@ function SubirJuego(string $nombre, array $imagen, array $torrent): void {
     } else {
         $connect = new DB();
 
-        // Limpiar caracteres especiales
         $nombre = $connect -> clearString($nombre);
-
-        // Imagen del Juego
+        
         $rutaimagen = SubirArchivo($imagen, "./assets/img/");
-
-        // Torrent del Juego
         $rutatorrent = SubirArchivo($torrent, "./assets/torrent/");
 
-        // Registrar en la Base de Datos
         $result = $connect -> Insert("INSERT INTO games (nombre, imagen, torrent) VALUES ('$nombre', '$rutaimagen', '$rutatorrent')");
 
         if ($result) {

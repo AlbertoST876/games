@@ -11,8 +11,8 @@ function ObtenerListaJuegos(): void {
     $connect = new DB();
     $result = $connect -> Select("SELECT id, nombre FROM games ORDER BY nombre ASC");
     
-    for ($i = 0; $i < count($result); $i++) {
-        echo "<option value=" . $result[$i]["id"] . ">" . $result[$i]["nombre"] . "</option>";
+    foreach ($result as $clave => $valor) {
+        echo "<option value=" . $valor["id"] . ">" . $valor["nombre"] . "</option>";
     }
 }
 
@@ -29,10 +29,8 @@ function ReportarJuego(int $juego, string $mensaje): void {
     } else {
         $connect = new DB();
 
-        // Limpiar caracteres especiales
         $mensaje = $connect -> clearString($mensaje);
 
-        // Registrar en la Base de Datos
         $result = $connect -> Insert("INSERT INTO reports (juego, mensaje) VALUES ('$juego', '$mensaje')");
 
         if ($result) {

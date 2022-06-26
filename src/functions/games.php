@@ -27,8 +27,8 @@ function PaginarJuegos(DB $connect, int $cantidad = 18): void {
 
     $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
 
-    for ($i = 0; $i < count($result); $i++) {
-        echo "<div class='game'><a href=" . $result[$i]["torrent"] . "><img src=" . $result[$i]["imagen"] . "></a><p>" . $result[$i]["nombre"] . "</p></div>";
+    foreach ($result as $clave => $valor) {
+        echo "<div class='game'><a href=" . $valor["torrent"] . "><img src=" . $valor["imagen"] . "></a><p>" . $valor["nombre"] . "</p></div>";
     }
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
