@@ -9,7 +9,7 @@ use Games\Classes\DB;
  */
 function ObtenerJuegosDestacados(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games WHERE destacado = 'yes' ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
 
     foreach ($result as $clave => $valor) {
         echo "<div class='game'><a href=" . $valor["torrent"] . "><img src=" . $valor["imagen"] . "></a><p>" . $valor["nombre"] . "</p></div>";
