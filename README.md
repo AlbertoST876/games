@@ -8,14 +8,14 @@ Puedes probarlo en vivo en mi sitio WEB **[https://albertost.sytes.net/apps/game
 
 ## Requisitos
 
-- Apache - 2.4.53
-- PHP - 8.1.6
-- MySQL - 8.0.28 o MariaDB - 10.6.7
+- Apache v2.4.54
+- PHP v8.1.6
+- MySQL v8.0.29 o MariaDB v10.8.3
 
 ## Instalación
 
 1. Descargar el software desde esta misma página y moverlo a su servidor Apache.
-2. Para la creación de la base de datos dispone de un **Script SQL** en **"assets/database.sql"**, este creará la base de datos y las tablas necesarias para funcionar correctamente.
+2. Para la creación de la base de datos dispone de un **Script SQL** en **"assets/sql/database.sql"**, este creará la base de datos y las tablas necesarias para funcionar correctamente.
 
 Con estos dos sencillos pasos ya está instalado.
 
