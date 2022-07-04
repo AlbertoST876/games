@@ -2,6 +2,9 @@
 
 namespace Games\Classes;
 
+/**
+ * Clase que define un juego a listar
+ */
 class ListGame {
     private int $id;
     private string $nombre;
