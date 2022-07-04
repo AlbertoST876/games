@@ -10,8 +10,68 @@ class Game {
     private string $imagen;
     private string $torrent;
 
-    public function __construct() {
-        
+    private static array $games = [];
+
+    /**
+     * Constructor del juego
+     *
+     * @param string $nombre Nombre del juego
+     * @param string $imagen Ruta de la imagen del juego
+     * @param string $torrent Ruta del torrent del juego
+     */
+    public function __construct(string $nombre, string $imagen, string $torrent) {
+        $this -> nombre = $nombre;
+        $this -> imagen = $imagen;
+        $this -> torrent = $torrent;
+
+        self::$games[] = $this;
+    }
+
+    /**
+     * Devuelve el nombre del juego
+     *
+     * @return string
+     */
+    public function getNombre(): string {
+        return $this -> nombre;
+    }
+
+    /**
+     * Devuelve la ruta de la imagen del juego
+     *
+     * @return string
+     */
+    public function getRutaImagen(): string {
+        return $this -> imagen;
+    }
+
+    /**
+     * Devuelve la ruta del torrent del juego
+     *
+     * @return string
+     */
+    public function getRutaTorrent(): string {
+        return $this -> torrent;
+    }
+
+    /**
+     * Muestra todos los juegos
+     *
+     * @return void
+     */
+    public static function mostrarTodos(): void {
+        foreach (self::$games as $game) {
+            $game -> mostrar();
+        }
+    }
+
+    /**
+     * Muestra un juego en concreto
+     *
+     * @return void
+     */
+    public function mostrar(): void {
+        echo "<div class='game'><a href=" . $this -> torrent . "><img src=" . $this -> imagen . "></a><p>" . $this -> nombre . "</p></div>";
     }
 }
 

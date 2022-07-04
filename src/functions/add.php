@@ -17,7 +17,6 @@ function SubirJuego(string $nombre, array $imagen, array $torrent): void {
         $connect = new DB();
 
         $nombre = $connect -> clearString($nombre);
-        
         $rutaimagen = SubirArchivo($imagen, "./assets/img/");
         $rutatorrent = SubirArchivo($torrent, "./assets/torrent/");
 

@@ -1,6 +1,7 @@
 <?php
 
 use Games\Classes\DB;
+use Games\Classes\Game;
 
 /**
  * Devuelve el catálogo con todos los juegos
@@ -27,9 +28,11 @@ function PaginarJuegos(DB $connect, int $cantidad = 18): void {
 
     $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
 
-    foreach ($result as $clave => $valor) {
-        echo "<div class='game'><a href=" . $valor["torrent"] . "><img src=" . $valor["imagen"] . "></a><p>" . $valor["nombre"] . "</p></div>";
+    foreach ($result as $game) {
+        new Game($game["nombre"], $game["imagen"], $game["torrent"]);
     }
+
+    Game::mostrarTodos();
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;

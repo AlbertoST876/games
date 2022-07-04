@@ -1,6 +1,7 @@
 <?php
 
 use Games\Classes\DB;
+use Games\Classes\Game;
 
 /**
  * Devuelve el catálogo de juegos que coincidan con la búsqueda realizada
@@ -23,9 +24,11 @@ function BuscarJuegos(string $juego): void {
         } 
         
         if (count($result) > 0) {
-            foreach ($result as $clave => $valor) {        
-                echo "<div class='game'><a href=" . $valor["torrent"] . "><img src=" . $valor["imagen"] . "></a><p>" . $valor["nombre"] . "</p></div>";
-            } 
+            foreach ($result as $game) {
+                new Game($game["nombre"], $game["imagen"], $game["torrent"]);
+            }
+
+            Game::mostrarTodos();
         }
     }
 }
