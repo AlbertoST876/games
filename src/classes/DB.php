@@ -46,19 +46,6 @@ class DB {
         }
     }
 
-    public function Insert($query = "", $params = []) {	
-        try {	
-            $stmt = $this -> executeStatement($query, $params);
-            $stmt -> close();
-
-            return true; // $this -> connect -> insert_id		
-        } catch (Exception $error) {
-            throw new Exception($error -> getMessage());
-        }
-
-        return false;	
-    }
-
     public function Select($query = "", $params = []) {	
         try {
             $stmt = $this -> executeStatement($query, $params);		
@@ -71,6 +58,19 @@ class DB {
         }
 
         return false;
+    }
+
+    public function Insert($query = "", $params = []) {	
+        try {	
+            $stmt = $this -> executeStatement($query, $params);
+            $stmt -> close();
+
+            return true;
+        } catch (Exception $error) {
+            throw new Exception($error -> getMessage());
+        }
+
+        return false;	
     }
 
     public function Update($query = "", $params = []) {
