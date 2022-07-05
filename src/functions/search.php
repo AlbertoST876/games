@@ -24,9 +24,7 @@ function BuscarJuegos(string $juego): void {
         } 
         
         if (count($result) > 0) {
-            foreach ($result as $game) {
-                new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
-            }
+            foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
 
             Game::mostrarTodos();
         }

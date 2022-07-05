@@ -28,9 +28,7 @@ function PaginarJuegos(DB $connect, int $cantidad = 18): void {
 
     $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
 
-    foreach ($result as $game) {
-        new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
-    }
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
 
     Game::mostrarTodos();
 

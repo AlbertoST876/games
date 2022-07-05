@@ -10,11 +10,9 @@ use Games\Classes\Game;
  */
 function ObtenerListaJuegos(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT id, nombre FROM games ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC");
     
-    foreach ($result as $game) {
-        new Game($game["id"], $game["nombre"]);
-    }
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
 
     Game::mostrarTodosListados();
 }
