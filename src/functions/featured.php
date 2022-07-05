@@ -10,10 +10,10 @@ use Games\Classes\Game;
  */
 function ObtenerJuegosDestacados(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
 
     foreach ($result as $game) {
-        new Game($game["nombre"], $game["imagen"], $game["torrent"]);
+        new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
     }
 
     Game::mostrarTodos();

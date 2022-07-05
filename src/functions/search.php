@@ -17,7 +17,7 @@ function BuscarJuegos(string $juego): void {
 
         $juego = $connect -> clearString($juego);
 
-        $result = $connect -> Select("SELECT nombre, imagen, torrent FROM games WHERE nombre LIKE '%$juego%' ORDER BY nombre ASC");
+        $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE nombre LIKE '%$juego%' ORDER BY nombre ASC");
 
         if (count($result) == 0) {
             echo "<p>No se encontró ningún resultado</p>";
@@ -25,7 +25,7 @@ function BuscarJuegos(string $juego): void {
         
         if (count($result) > 0) {
             foreach ($result as $game) {
-                new Game($game["nombre"], $game["imagen"], $game["torrent"]);
+                new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
             }
 
             Game::mostrarTodos();

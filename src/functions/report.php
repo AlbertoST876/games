@@ -1,7 +1,7 @@
 <?php
 
 use Games\Classes\DB;
-use Games\Classes\ListGame;
+use Games\Classes\Game;
 
 /**
  * Obtiene la lista de juegos que hay en la Base de Datos
@@ -13,10 +13,10 @@ function ObtenerListaJuegos(): void {
     $result = $connect -> Select("SELECT id, nombre FROM games ORDER BY nombre ASC");
     
     foreach ($result as $game) {
-        new ListGame($game["id"], $game["nombre"]);
+        new Game($game["id"], $game["nombre"]);
     }
 
-    ListGame::mostrarTodos();
+    Game::mostrarTodosListados();
 }
 
 /**
