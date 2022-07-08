@@ -8,20 +8,25 @@ use Games\Classes\Game;
  *
  * @return void
  */
-function ObtenerJuegos(): void {
+function obtenerJuegos(): void {
     $connect = new DB();
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
 
-    PaginarJuegos($connect);
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+
+    Game::mostrarTodos();
+    
 }
 
 /**
  * Pagina los juegos en diferentes páginas, sino se le especifica cantidad, por defecto es 18
  *
- * @param DB $connect Conexión con la Base de Datos
- * @param int $cantidad Cantidad de juegos por página
+ * @param int $cantidad Cantidad de juegos por página, 18 por defecto
  * @return void
  */
-function PaginarJuegos(DB $connect, int $cantidad = 18): void {
+function obtenerJuegosPaginados(int $cantidad = 18): void {
+    $connect = new DB();
+
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
     $TotalRegistro = ceil(count($connect -> Select("SELECT nombre, imagen, torrent FROM games")) / $cantidad);

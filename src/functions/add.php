@@ -10,7 +10,7 @@ use Games\Classes\DB;
  * @param array $torrent Torrent del juego
  * @return void
  */
-function SubirJuego(string $nombre, array $imagen, array $torrent): void {
+function subirJuego(string $nombre, array $imagen, array $torrent): void {
     if (empty($nombre) || empty($imagen) || empty($torrent)) {
         echo "<p>Faltan uno o mas campos por rellenar</p>";
     } else {
@@ -37,7 +37,7 @@ function SubirJuego(string $nombre, array $imagen, array $torrent): void {
  * @param string $rutaguardado Ruta donde se guardará el archivo
  * @return string
  */
-function SubirArchivo(array $archivo, string $rutaguardado): string {
+function subirArchivo(array $archivo, string $rutaguardado): string {
     move_uploaded_file($archivo["tmp_name"], $rutaguardado . "/" . $archivo["name"]);
 
     return $rutaguardado . $archivo["name"];

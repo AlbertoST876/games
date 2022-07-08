@@ -8,11 +8,11 @@ use Games\Classes\Game;
  *
  * @return void
  */
-function ObtenerListaJuegos(): void {
+function obtenerJuegosListados(): void {
     $connect = new DB();
     $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC");
     
-    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+    foreach ($result as $game) new Game($game["id"], $game["nombre"]);
 
     Game::mostrarTodosListados();
 }
@@ -24,7 +24,7 @@ function ObtenerListaJuegos(): void {
  * @param string $mensaje Mensaje del reporte
  * @return void
  */
-function ReportarJuego(int $juego, string $mensaje): void {
+function reportarJuego(int $juego, string $mensaje): void {
     if (empty($juego) || empty($mensaje)) {
         echo "<p>Faltan uno o mas campos por rellenar</p>";
     } else {

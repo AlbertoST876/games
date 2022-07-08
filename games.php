@@ -39,7 +39,7 @@
             </div>
 
             <div class="games">
-                <?php isset($_POST["search"]) ? BuscarJuegos($_POST["juego"]) : ObtenerJuegos(); ?>
+                <?php isset($_POST["search"]) ? buscarJuegos($_POST["juego"]) : obtenerJuegosPaginados(); ?>
             </div>
         </main>
     </body>

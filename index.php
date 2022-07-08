@@ -31,7 +31,7 @@
             <h1 class="destacados">Juegos Destacados</h1>
 
             <div class="games">
-                <?php ObtenerJuegosDestacados(); ?>
+                <?php obtenerJuegosDestacados(); ?>
             </div>            
         </main>
     </body>

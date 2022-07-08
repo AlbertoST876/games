@@ -9,7 +9,7 @@ use Games\Classes\Game;
  * @param string $juego Nombre del juego
  * @return void
  */
-function BuscarJuegos(string $juego): void {
+function buscarJuegos(string $juego): void {
     if (empty($juego)) {
         echo "<p>Debe rellenar el campo de búsqueda</p>";
     } else {

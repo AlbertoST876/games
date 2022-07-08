@@ -64,7 +64,7 @@
                             <select name="juego" id="juego" required>
                                 <option value="" selected disabled hidden>Selecciona un Juego</option>
 
-                                <?php ObtenerListaJuegos(); ?>
+                                <?php obtenerJuegosListados(); ?>
                             </select>
                         </div>
 
@@ -84,8 +84,8 @@
                 </div>
 
                 <?php
-                    if (isset($_POST["upload"])) SubirJuego($_POST["juego"], $_FILES["imagen"], $_FILES["torrent"]);
-                    if (isset($_POST["report"])) ReportarJuego($_POST["juego"], $_POST["mensaje"]);
+                    if (isset($_POST["upload"])) subirJuego($_POST["juego"], $_FILES["imagen"], $_FILES["torrent"]);
+                    if (isset($_POST["report"])) reportarJuego($_POST["juego"], $_POST["mensaje"]);
                 ?>
             </div>
         </main>

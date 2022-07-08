@@ -8,7 +8,7 @@ use Games\Classes\Game;
  *
  * @return void
  */
-function ObtenerJuegosDestacados(): void {
+function obtenerJuegosDestacados(): void {
     $connect = new DB();
     $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
 
