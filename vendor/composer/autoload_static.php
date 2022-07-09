@@ -7,11 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit458857328df16185244170031eb56b30
 {
     public static $files = array (
-        'c5998f3c738801209c28441e7f2cd8cc' => __DIR__ . '/../..' . '/src/functions/add.php',
-        '5c69bcbf00d68dc948ddbcf30130f5bc' => __DIR__ . '/../..' . '/src/functions/featured.php',
-        'cc0461998b90578b813d3264daa6ecf4' => __DIR__ . '/../..' . '/src/functions/games.php',
-        'b4fe0eb1a5f376e1a7cc3e24569db1aa' => __DIR__ . '/../..' . '/src/functions/report.php',
-        'e3f8071fd90d476b0c3ba7017de8f4e3' => __DIR__ . '/../..' . '/src/functions/search.php',
+        '58be9656c57066cfcf9362eb228e71cd' => __DIR__ . '/../..' . '/src/functions/agregar.php',
+        '723e49a297804f7a74fb06e2343cc9e2' => __DIR__ . '/../..' . '/src/functions/buscar.php',
+        'e71cabe8c567cd1a2a0c9373f48587f4' => __DIR__ . '/../..' . '/src/functions/juegos.php',
+        '080d10ecb766cfa36082e3910c61f3f0' => __DIR__ . '/../..' . '/src/functions/reportar.php',
     );
 
     public static $prefixLengthsPsr4 = array (

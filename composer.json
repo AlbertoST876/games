@@ -14,11 +14,10 @@
             "Games\\Classes\\": "src/classes/"
         },
         "files": [
-            "src/functions/add.php",
-            "src/functions/featured.php",
-            "src/functions/games.php",
-            "src/functions/report.php",
-            "src/functions/search.php"
+            "src/functions/agregar.php",
+            "src/functions/buscar.php",
+            "src/functions/juegos.php",
+            "src/functions/reportar.php"
         ]
     },
     "autoload-dev": {
@@ -26,11 +25,10 @@
             "Games\\Classes\\": "src/classes/"
         },
         "files": [
-            "src/functions/add.php",
-            "src/functions/featured.php",
-            "src/functions/games.php",
-            "src/functions/report.php",
-            "src/functions/search.php"
+            "src/functions/agregar.php",
+            "src/functions/buscar.php",
+            "src/functions/juegos.php",
+            "src/functions/reportar.php"
         ]
     }
 }

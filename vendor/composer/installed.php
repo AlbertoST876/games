@@ -3,7 +3,7 @@
         'name' => 'albertost876/games',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'bd9ac684e0796abd7651da9eadb37305bd8634aa',
+        'reference' => '55a59f7c553df6d89be082d4c61be03b2b7fc3f7',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'albertost876/games' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bd9ac684e0796abd7651da9eadb37305bd8634aa',
+            'reference' => '55a59f7c553df6d89be082d4c61be03b2b7fc3f7',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
