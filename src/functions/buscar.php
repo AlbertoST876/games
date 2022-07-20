@@ -19,9 +19,7 @@ function buscarJuegos(string $juego): void {
 
         $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE nombre LIKE '%$juego%' ORDER BY nombre ASC");
 
-        if (count($result) == 0) {
-            echo "<p>No se encontró ningún resultado</p>";
-        } 
+        if (count($result) == 0) echo "<p>No se encontró ningún resultado</p>";
         
         if (count($result) > 0) {
             foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
