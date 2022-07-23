@@ -15,7 +15,7 @@
  * @param array $torrent
  * @return void
  */
-function SubirJuego(string $nombre, array $imagen, array $torrent):void {
+function SubirJuego(string $nombre, array $imagen, array $torrent): void {
     include "./modules/db/db.php";
 
     if ($connect) {
@@ -58,7 +58,7 @@ function SubirJuego(string $nombre, array $imagen, array $torrent):void {
  * @param string $rutaguardado
  * @return string
  */
-function SubirArchivo(array $archivo, string $rutaguardado):string {
+function SubirArchivo(array $archivo, string $rutaguardado): string {
     move_uploaded_file($archivo["tmp_name"], $rutaguardado . "/" . $archivo["name"]);
 
     return $rutaguardado . $archivo["name"];

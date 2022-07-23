@@ -13,7 +13,7 @@
  * @param string $juego
  * @return void
  */
-function BuscarJuegos(string $juego):void {
+function BuscarJuegos(string $juego): void {
     include "./modules/db/db.php";
 
     if ($connect) {
@@ -28,9 +28,7 @@ function BuscarJuegos(string $juego):void {
             if (mysqli_num_rows($result) == 0) {
                 echo "<p>No se encontró ningún resultado</p>";
             } elseif (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {        
-                    echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
-                } 
+                while ($row = mysqli_fetch_assoc($result)) echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
             } else {
                 echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
             }

@@ -12,7 +12,7 @@
  *
  * @return void
  */
-function ObtenerJuegosDestacados():void {
+function ObtenerJuegosDestacados(): void {
     include "./modules/db/db.php";
 
     if ($connect) {
@@ -20,9 +20,7 @@ function ObtenerJuegosDestacados():void {
         $result = mysqli_query($connect, $SQL);
     
         if ($result) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
-            }
+            while ($row = mysqli_fetch_assoc($result)) echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
         } else {
             echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
         }

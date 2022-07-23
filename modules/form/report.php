@@ -12,16 +12,14 @@
  *
  * @return void
  */
-function ObtenerListaJuegos():void {
+function ObtenerListaJuegos(): void {
     include "./modules/db/db.php";
 
     $SQL = "SELECT id, nombre FROM games ORDER BY nombre ASC";
     $result = mysqli_query($connect, $SQL);
     
     if ($result) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<option value=" . $row["id"] . ">" . $row["nombre"] . "</option>";
-        }
+        while ($row = mysqli_fetch_assoc($result)) echo "<option value=" . $row["id"] . ">" . $row["nombre"] . "</option>";
     } else {
         echo "Ha ocurrido un error, inténtalo de nuevo mas tarde";
     }
@@ -36,7 +34,7 @@ function ObtenerListaJuegos():void {
  * @param string $mensaje
  * @return void
  */
-function ReportarJuego(int $juego, string $mensaje):void {
+function ReportarJuego(int $juego, string $mensaje): void {
     include "./modules/db/db.php";
 
     if ($connect) {

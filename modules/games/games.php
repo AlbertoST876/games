@@ -12,13 +12,13 @@
  *
  * @return void
  */
-function ObtenerJuegos():void {
+function ObtenerJuegos(): void {
     include "./modules/db/db.php";
 
     if ($connect) {
         PaginarJuegos($connect);
     } else {
-        echo "<p>Ha ocurrido un error, intentalo de nuevo mas tarde</p>";
+        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
     }
 
     mysqli_close($connect);
@@ -31,7 +31,7 @@ function ObtenerJuegos():void {
  * @param int $cantidad
  * @return void
  */
-function PaginarJuegos(mysqli $connect, int $cantidad = 18):void {
+function PaginarJuegos(mysqli $connect, int $cantidad = 18): void {
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
     $TotalRegistro = ceil(mysqli_num_rows(mysqli_query($connect, "SELECT nombre, imagen, torrent FROM games")) / $cantidad);
@@ -39,9 +39,7 @@ function PaginarJuegos(mysqli $connect, int $cantidad = 18):void {
     $SQL = "SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad;
     $result = mysqli_query($connect, $SQL);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
-    }
+    while ($row = mysqli_fetch_assoc($result)) echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;
