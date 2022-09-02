@@ -1,0 +1,345 @@
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #222222;
+}
+/* GENERAL */
+
+/* HEADER */
+header {
+    display: block;
+    padding: 20px 5%;
+    width: 90%;
+    background-color: #111111;
+}
+
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav > a {
+    display: inline-block;
+    line-height: 0;
+}
+
+header nav > a img {
+    width: 80px;
+    height: auto;
+}
+
+header nav span {
+    display: none;
+}
+
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin: 10px;
+}
+
+header nav ul li a {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #eeeeee;
+    background-color: #111111;
+    transition: all 0.4s linear;
+}
+
+header nav ul li a:hover {
+    background-color: #333333;
+}
+
+header nav ul li a#actual {
+    background-color: #333333;
+}
+/* HEADER */
+
+/* MAIN */
+main {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+}
+
+main h1 {
+    display: block;
+    margin: 10px 0;
+    font-size: 50px;
+    color: #eeeeee;
+}
+
+main p {
+    color: #eeeeee;
+}
+
+.destacados {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.games {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.game {
+    display: inline-block;
+    margin: 10px;
+    width: 170px;
+    border-radius: 0 0 5px 5px;
+    transition: all 0.1s linear;
+    background-color: #333333;
+    
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.game:hover {
+    position: relative;
+    top: -5px;
+    right: -5px;
+}
+
+.game img {
+    width: 100%;
+    height: 250px;
+}
+
+.game p {
+    display: block;
+    margin: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.search {
+    display: block;
+}
+
+.search input[type="submit"], .search input[type="button"] {
+    display: inline-block;
+    padding: 0 5px;
+    color: #000000;
+}
+/* MAIN */
+
+/* MAIN FORM */
+.formularios {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: center;
+}
+
+.formularios p {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.formulario {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+}
+
+form {
+    display: block;
+}
+
+label {
+    display: inline-block;
+    margin: 10px 0;
+    color: #eeeeee;
+}
+
+input {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input[type="file"] {
+    color: #eeeeee;
+}
+
+input[type="text"] {
+    color: #000000;
+}
+
+select, option {
+    display: inline-block;
+    margin: 10px 0;
+    color: #000000;
+}
+
+.formulario input[type="submit"], .formulario input[type="reset"] {
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    padding: 5px;
+    color: #000000;
+}
+/* MAIN FORM*/
+
+@media only screen and (max-width: 1300px) {
+    /* MAIN */
+    .game {
+        width: 150px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 220px;
+    }
+    /* MAIN */
+}
+
+@media only screen and (max-width: 1000px) {
+    /* HEADER */
+    header nav span {
+        display: block;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+    header nav ul li a {
+        width: 100%;
+    }
+
+    header nav ul {
+        display: none;
+    }
+
+    header nav ul.show {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    header nav ul.show li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    header nav ul.show li a {
+        display: block;
+        padding: 5px 10px;
+    }
+    /* HEADER */
+
+    /* MAIN */
+    .game {
+        width: 100px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 150px;
+    }
+
+    .game p {
+        font-size: 10px;
+    }
+    /* MAIN */
+
+    /* MAIN FORM */
+    .formularios {
+        justify-content: left;
+    }
+
+    .formulario {
+        display: block;
+        width: 100%;
+    }
+
+    main h1 {
+        font-size: 30px;
+    }
+    /* MAIN FORM */
+}
+
+@media only screen and (max-width: 400px) {
+    /* MAIN */
+    .search input[type="text"] {
+        width: 100%;
+    }
+
+    .game {
+        width: 80px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 120px;
+    }
+    /* MAIN */
+}
+
+/* PAGINACIÓN */
+.games .active > a {
+    background-color: #333333; 
+}
+
+.games .btn > a {
+    display: inline-block;
+    padding: 2px;
+    width: 30px;
+    text-align: center;
+    border-radius: 2px;
+    background-color: #222222;
+}
+
+.games ul {
+    display: block;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.games ul > li {
+    display: inline-block;
+    margin-right: 10px;
+    list-style: none;
+}
+
+.games ul > li > a {
+    display: block;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+    border-radius: 20px;
+    color: #FFFFFF;
+    transition: all 0.4s linear;
+    background-color: #222222;
+}
+
+.games ul > li > a:hover {
+    background-color: #333333;
+}
+
+.games .btn > a:hover {
+    background-color: #222222;
+}
+/* PAGINACIÓN */
