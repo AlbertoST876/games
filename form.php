@@ -1,5 +1,4 @@
-
-<?php include "./src/functions.php"; ?>
+<?php include "./vendor/autoload.php"; ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -40,22 +39,25 @@
                     <h1>Agregar un Juego</h1>
 
                     <form action="form.php" method="POST" enctype="multipart/form-data">
-                        <label for="juego">Nombre del Juego:</label>
-                        <input type="text" name="juego" id="juego" required>
-                            
-                        <br/>
+                        <div>
+                            <label for="juego">Nombre del Juego:</label>
+                            <input type="text" name="juego" id="juego" maxlength="50" required>
+                        </div>
 
-                        <label for="imagen">Imagen del Juego:</label>
-                        <input type="file" name="imagen" id="imagen" accept="image/*" size="1024" required>
+                        <div>
+                            <label for="imagen">Imagen del Juego:</label>
+                            <input type="file" name="imagen" id="imagen" accept="image/*" size="1024" required>
+                        </div>
 
-                        <br/>
-                            
-                        <label for="torrent">Torrent del Juego:</label>
-                        <input type="file" name="torrent" id="torrent" accept=".torrent" size="1024" required>
+                        <div>
+                            <label for="torrent">Torrent del Juego:</label>
+                            <input type="file" name="torrent" id="torrent" accept=".torrent" size="1024" required>
+                        </div>
 
-                        <br/>
-
-                        <input type="submit" name="upload" value="Enviar"><input type="reset" value="Resetear">
+                        <div>
+                            <input type="submit" name="upload" value="Enviar">
+                            <input type="reset" value="Resetear">
+                        </div>
                     </form>
                 </div>
 
@@ -63,25 +65,31 @@
                     <h1>Reportar un Juego</h1>
 
                     <form action="form.php" method="POST">
-                        <label for="juego">Nombre del Juego:</label>
-                        <select name="juego" id="juego" class="select2" required>
-                            <option value="" selected disabled hidden>Selecciona un Juego</option>
+                        <div>
+                            <label for="juego">Nombre del Juego:</label>
+                            <select name="juego" id="juego" class="select2" required>
+                                <option selected disabled hidden>Selecciona un Juego</option>
 
-                            <?php obtenerListaJuegos(); ?>
-                        </select>
+                                <?php obtenerJuegosListados(); ?>
+                            </select>
+                        </div>
 
-                        <br/>
+                        <div>
+                            <label for="mensaje">¿Por que quieres reportar este juego?</label>
+                        </div>
 
-                        <label for="mensaje">¿Por que quieres reportar este juego?</label> <br/>
-                        <input type="text" name="mensaje" id="mensaje" required>
+                        <div>
+                            <input type="text" name="mensaje" id="mensaje" maxlength="255" required>
+                        </div>
 
-                        <br/>
-
-                        <input type="submit" name="report" value="Enviar"><input type="reset" value="Resetear">
+                        <div>
+                            <input type="submit" name="report" value="Enviar">
+                            <input type="reset" value="Resetear">
+                        </div>
                     </form>
                 </div>
 
-                <?php 
+                <?php
                     if (isset($_POST["upload"])) subirJuego($_POST["juego"], $_FILES["imagen"], $_FILES["torrent"]);
                     if (isset($_POST["report"])) reportarJuego($_POST["juego"], $_POST["mensaje"]);
                 ?>

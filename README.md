@@ -8,9 +8,9 @@ Puedes probarlo en vivo en mi sitio WEB **[https://albertost.sytes.net/apps/game
 
 ## Requisitos
 
-- Apache - 2.4.54
-- PHP - 8.1.9
-- MySQL - 8.0.30 o MariaDB - 10.8.4
+- Apache v2.4.54
+- PHP v8.1.9
+- MySQL v8.0.30 o MariaDB v10.8.4
 
 ## Instalación
 
@@ -21,7 +21,7 @@ Con estos dos sencillos pasos ya está instalado.
 
 ## Configuración
 
-La única configuración que hay que hacer en el propio código es establecer la conexión a la base de datos, que se realiza en el archivo ubicado en **"src/functions/db.php"**.
+La única configuración que hay que hacer en el propio código es establecer la conexión a la base de datos, que se realiza en el archivo ubicado en **"src/classes/DB.php"**.
 
 Tranquilo, si no eres programador está comentado claramente el lugar donde rellenarlo manualmente con la configuración de su base de datos.
 

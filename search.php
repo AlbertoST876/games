@@ -10,28 +10,36 @@
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="icon" href="./assets/icon.png">
-        <title>AlbertoST Informática - Games - Inicio</title>
+        <title>AlbertoST Informática - Games - Juegos</title>
     </head>
 
     <body>
         <header>
             <nav>
                 <a href="./index.php"><img src="./assets/icon.png"></a>
-
+        
                 <span>Menu</span>
                 <ul>
-                    <li><a id="actual" href="./index.php">Inicio</a></li>
-                    <li><a href="./games.php">Juegos</a></li>
+                    <li><a href="./index.php">Inicio</a></li>
+                    <li><a id="actual" href="./games.php">Juegos</a></li>
                     <li><a href="./form.php">Agregar / Reportar Juego</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <h1 class="destacados">Juegos Destacados</h1>
+            <div class="search">
+                <h1>Buscar Juego</h1>
+
+                <form action="./search.php" method="GET">
+                    <input type="text" name="juego" id="juego">
+                    <input type="submit" value="Buscar">
+                    <a href="./games.php"><input type="button" value="Mostrar Todos"></a>
+                </form>
+            </div>
 
             <div class="games">
-                <?php obtenerJuegosDestacados(); ?>
+                <?php buscarJuegosPaginados($_GET["juego"]); ?>
             </div>
         </main>
     </body>

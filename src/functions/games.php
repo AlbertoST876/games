@@ -1,42 +1,58 @@
 <?php
 
+use Games\Classes\DB;
+use Games\Classes\Game;
+
 /**
- * Devuelve el catálogo con todos los juegos
+ * Devuelve el catálogo con todos los juegos sin paginar
  *
  * @return void
  */
 function obtenerJuegos(): void {
-    include "./src/functions/db.php";
+    $connect = new DB();
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC");
+    
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
 
-    if ($connect) {
-        PaginarJuegos($connect);
-    } else {
-        echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
-    }
+    Game::mostrarTodos();
+}
 
-    mysqli_close($connect);
+/**
+ * Devuelve el catálogo de los juegos destacados
+ *
+ * @return void
+ */
+function obtenerJuegosDestacados(): void {
+    $connect = new DB();
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
+
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+
+    Game::mostrarTodos();
 }
 
 /**
  * Pagina los juegos en diferentes páginas, sino se le especifica cantidad, por defecto es 18
  *
- * @param mysqli $connect
- * @param int $cantidad
+ * @param int $cantidad Cantidad de juegos por página, 18 por defecto
  * @return void
  */
-function paginarJuegos(mysqli $connect, int $cantidad = 18): void {
+function obtenerJuegosPaginados(int $cantidad = 18): void {
+    $connect = new DB();
+
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
-    $TotalRegistro = ceil(mysqli_num_rows(mysqli_query($connect, "SELECT nombre, imagen, torrent FROM games")) / $cantidad);
+    $TotalRegistro = ceil(count($connect -> Select("SELECT id FROM games")) / $cantidad);
 
-    $SQL = "SELECT nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad;
-    $result = mysqli_query($connect, $SQL);
+    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
 
-    while ($row = mysqli_fetch_assoc($result)) echo "<div class='game'><a href=" . $row["torrent"] . "><img src=" . $row["imagen"] . "></a><p>" . $row["nombre"] . "</p></div>";
+    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+
+    Game::mostrarTodos();
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;
-        
+    
     echo "<ul><li class='btn'><a href='?pag=" . $DecrementNum . "'>◀</a></li>";
     
     $Desde = $compag - (ceil($cantidad / 2) - 1);
@@ -51,7 +67,7 @@ function paginarJuegos(mysqli $connect, int $cantidad = 18): void {
                 echo "<li class='active'><a href='?pag=" . $i . "'>" . $i . "</a></li>";
             } else {
                 echo "<li><a href='?pag=" . $i . "'>" . $i . "</a></li>";
-            }     		
+            }
         }
     }
     

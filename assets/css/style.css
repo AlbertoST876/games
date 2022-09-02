@@ -70,13 +70,11 @@ header nav ul li a#actual {
 /* MAIN */
 main {
     display: block;
-    margin: 0 auto;
-    width: 90%;
 }
 
 main h1 {
     display: block;
-    margin: 10px 0;
+    padding: 10px;
     font-size: 50px;
     color: #eeeeee;
 }
@@ -87,16 +85,19 @@ main p {
 
 .destacados {
     display: block;
-    margin: 10px auto;
+    margin: 0 auto;
+    width: 90%;
     text-align: center;
 }
 
 .games {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
 }
 
 .game {
@@ -135,6 +136,8 @@ main p {
 
 .search {
     display: block;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .search input[type="submit"], .search input[type="button"] {
@@ -168,6 +171,7 @@ main p {
 
 form {
     display: block;
+    padding: 10px;
 }
 
 label {

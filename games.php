@@ -1,4 +1,4 @@
-<?php include "./src/functions.php"; ?>
+<?php include "./vendor/autoload.php"; ?>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -31,7 +31,7 @@
             <div class="search">
                 <h1>Buscar Juego</h1>
 
-                <form action="./games.php" method="GET">
+                <form action="./search.php" method="GET">
                     <input type="text" name="juego" id="juego">
                     <input type="submit" value="Buscar">
                     <a href="./games.php"><input type="button" value="Mostrar Todos"></a>
@@ -39,7 +39,7 @@
             </div>
 
             <div class="games">
-                <?php isset($_GET["juego"]) ? buscarJuegos($_GET["juego"]) : obtenerJuegos(); ?>
+                <?php obtenerJuegosPaginados(); ?>
             </div>
         </main>
     </body>

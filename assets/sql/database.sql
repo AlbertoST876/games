@@ -6,23 +6,18 @@ USE `es_games`;
 CREATE TABLE `games` (
   `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
-  `imagen` varchar(255) NOT NULL,
-  `torrent` varchar(255) NOT NULL,
-  `destacado` varchar(5) NOT NULL DEFAULT 'no',
-  `fecha` varchar(30) NOT NULL
+  `imagen` varchar(100) NOT NULL,
+  `torrent` varchar(100) NOT NULL,
+  `destacado` enum('T', 'F') NOT NULL DEFAULT 'F',
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `reports` (
   `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `juego` int NOT NULL,
   `mensaje` varchar(255) NOT NULL,
-  `fecha` varchar(30) NOT NULL
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-----------------------------------------------------------
-
-ALTER TABLE `games` MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 55;
-
 
 ----------------------------------------------------------
 
