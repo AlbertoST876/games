@@ -9,20 +9,20 @@
         <meta name="author" content="Alberto Sánchez Torreblanca">
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="icon" href="./assets/icon.png">
+        <link rel="icon" href="./assets/icons/icon.png">
         <title>AlbertoST Informática - Games - Juegos</title>
     </head>
 
     <body>
         <header>
             <nav>
-                <a href="./index.php"><img src="./assets/icon.png"></a>
+                <a href="./index.php"><img src="./assets/icons/icon.png"></a>
         
                 <span>Menu</span>
                 <ul>
                     <li><a href="./index.php">Inicio</a></li>
                     <li><a id="actual" href="./games.php">Juegos</a></li>
-                    <li><a href="./form.php">Agregar / Reportar Juego</a></li>
+                    <li><a href="./report.php">Reportar</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,15 +31,15 @@
             <div class="search">
                 <h1>Buscar Juego</h1>
 
-                <form action="./search.php" method="GET">
-                    <input type="text" name="juego" id="juego">
+                <form action="./games.php" method="GET">
+                    <input type="text" name="game">
                     <input type="submit" value="Buscar">
                     <a href="./games.php"><input type="button" value="Mostrar Todos"></a>
                 </form>
             </div>
 
             <div class="games">
-                <?php obtenerJuegosPaginados(); ?>
+                <?php isset($_GET["game"]) ? searchPaginatedGames() : getPaginatedGames(); ?>
             </div>
         </main>
     </body>

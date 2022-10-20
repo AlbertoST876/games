@@ -4,70 +4,66 @@ use Games\Classes\DB;
 use Games\Classes\Game;
 
 /**
- * Devuelve el catálogo con todos los juegos sin paginar
+ * Devuelve el catálogo con todos los juegos
  *
  * @return void
  */
-function obtenerJuegos(): void {
+function getGames(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT id, name, image, torrent FROM games ORDER BY name ASC");
     
-    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+    foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
 
-    Game::mostrarTodos();
+    Game::showAlls();
 }
 
 /**
- * Devuelve el catálogo de los juegos destacados
+ * Devuelve un catálogo con los juegos destacados del momento
  *
  * @return void
  */
-function obtenerJuegosDestacados(): void {
+function getFeaturedGames(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games WHERE destacado = 'T' ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT id, name, image, torrent FROM games WHERE featured = 'T' ORDER BY name ASC");
 
-    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
+    foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
 
-    Game::mostrarTodos();
+    Game::showAlls();
 }
 
 /**
- * Pagina los juegos en diferentes páginas, sino se le especifica cantidad, por defecto es 18
+ * Obtiene los juegos en diferentes páginas, si no se le especifica una cantidad, por defecto es 18
  *
- * @param int $cantidad Cantidad de juegos por página, 18 por defecto
+ * @param int $amount Cantidad de juegos por página, 18 por defecto
  * @return void
  */
-function obtenerJuegosPaginados(int $cantidad = 18): void {
+function getPaginatedGames(int $amount = 18): void {
     $connect = new DB();
 
     $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
 
-    $TotalRegistro = ceil(count($connect -> Select("SELECT id FROM games")) / $cantidad);
+    $TotalRegistro = ceil(count($connect -> Select("SELECT id FROM games")) / $amount);
 
-    $result = $connect -> Select("SELECT id, nombre, imagen, torrent FROM games ORDER BY nombre ASC LIMIT " . $cantidad * ($compag - 1) . "," . $cantidad);
+    $result = $connect -> Select("SELECT id, name, image, torrent FROM games ORDER BY name ASC LIMIT " . $amount * ($compag - 1) . "," . $amount);
 
-    foreach ($result as $game) new Game($game["id"], $game["nombre"], $game["imagen"], $game["torrent"]);
-
-    Game::mostrarTodos();
+    foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
+    
+    Game::showAlls();
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;
     
     echo "<ul><li class='btn'><a href='?pag=" . $DecrementNum . "'>◀</a></li>";
     
-    $Desde = $compag - (ceil($cantidad / 2) - 1);
-    $Hasta = $compag + (ceil($cantidad / 2) - 1);
+    $Desde = $compag - (ceil($amount / 2) - 1);
+    $Hasta = $compag + (ceil($amount / 2) - 1);
 
     $Desde = $Desde < 1 ? 1 : $Desde;
-    $Hasta = $Hasta < $cantidad ? $cantidad : $Hasta;
+    $Hasta = $Hasta < $amount ? $amount : $Hasta;
     
     for ($i = $Desde; $i <= $Hasta; $i++) {
         if ($i <= $TotalRegistro) {
-            if ($i == $compag) {
-                echo "<li class='active'><a href='?pag=" . $i . "'>" . $i . "</a></li>";
-            } else {
-                echo "<li><a href='?pag=" . $i . "'>" . $i . "</a></li>";
-            }
+            echo $i == $compag ? "<li class='active'><a href='?pag=" . $i . "'>" . $i . "</a></li>" : "<li><a href='?pag=" . $i . "'>" . $i . "</a></li>";
         }
     }
     

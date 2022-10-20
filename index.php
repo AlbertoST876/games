@@ -9,20 +9,20 @@
         <meta name="author" content="Alberto Sánchez Torreblanca">
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="icon" href="./assets/icon.png">
+        <link rel="icon" href="./assets/icons/icon.png">
         <title>AlbertoST Informática - Games - Inicio</title>
     </head>
 
     <body>
         <header>
             <nav>
-                <a href="./index.php"><img src="./assets/icon.png"></a>
+                <a href="./index.php"><img src="./assets/icons/icon.png"></a>
 
                 <span>Menu</span>
                 <ul>
                     <li><a id="actual" href="./index.php">Inicio</a></li>
                     <li><a href="./games.php">Juegos</a></li>
-                    <li><a href="./form.php">Agregar / Reportar Juego</a></li>
+                    <li><a href="./report.php">Reportar</a></li>
                 </ul>
             </nav>
         </header>
@@ -31,7 +31,7 @@
             <h1 class="destacados">Juegos Destacados</h1>
 
             <div class="games">
-                <?php obtenerJuegosDestacados(); ?>
+                <?php getFeaturedGames(); ?>
             </div>
         </main>
     </body>

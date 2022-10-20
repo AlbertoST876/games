@@ -38,6 +38,7 @@ header nav > a img {
 
 header nav span {
     display: none;
+    color: #eeeeee;
 }
 
 header nav ul {
@@ -70,41 +71,41 @@ header nav ul li a#actual {
 /* MAIN */
 main {
     display: block;
+    margin: 0 auto;
+    width: 90%;
 }
 
 main h1 {
     display: block;
-    padding: 10px;
+    margin: 10px 0;
     font-size: 50px;
     color: #eeeeee;
 }
 
 main p {
+    margin: 10px 0;
     color: #eeeeee;
 }
 
 .destacados {
     display: block;
-    margin: 0 auto;
-    width: 90%;
+    margin: 10px auto;
     text-align: center;
 }
 
 .games {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
-    padding: 10px;
-    width: 90%;
+    margin: 20px 0;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .game {
     display: inline-block;
     margin: 10px;
     width: 170px;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 10px 10px;
     transition: all 0.1s linear;
     background-color: #333333;
     
@@ -136,8 +137,6 @@ main p {
 
 .search {
     display: block;
-    margin: 0 auto;
-    width: 90%;
 }
 
 .search input[type="submit"], .search input[type="button"] {
@@ -152,7 +151,7 @@ main p {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     justify-content: center;
 }
 
@@ -171,7 +170,6 @@ main p {
 
 form {
     display: block;
-    padding: 10px;
 }
 
 label {
@@ -190,6 +188,7 @@ input[type="file"] {
 }
 
 input[type="text"] {
+    padding: 2px;
     color: #000000;
 }
 
@@ -199,108 +198,12 @@ select, option {
     color: #000000;
 }
 
-.formulario input[type="submit"], .formulario input[type="reset"] {
+input[type="submit"], input[type="reset"] {
     display: inline-block;
-    margin: 10px 10px 10px 0;
+    margin: 10px 0;
     padding: 5px;
-    color: #000000;
 }
 /* MAIN FORM*/
-
-@media only screen and (max-width: 1300px) {
-    /* MAIN */
-    .game {
-        width: 150px;
-    }
-
-    .game img {
-        width: 100%;
-        height: 220px;
-    }
-    /* MAIN */
-}
-
-@media only screen and (max-width: 1000px) {
-    /* HEADER */
-    header nav span {
-        display: block;
-        cursor: pointer;
-        padding: 10px 20px;
-        font-size: 20px;
-    }
-
-    header nav ul li a {
-        width: 100%;
-    }
-
-    header nav ul {
-        display: none;
-    }
-
-    header nav ul.show {
-        display: block;
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    header nav ul.show li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    header nav ul.show li a {
-        display: block;
-        padding: 5px 10px;
-    }
-    /* HEADER */
-
-    /* MAIN */
-    .game {
-        width: 100px;
-    }
-
-    .game img {
-        width: 100%;
-        height: 150px;
-    }
-
-    .game p {
-        font-size: 10px;
-    }
-    /* MAIN */
-
-    /* MAIN FORM */
-    .formularios {
-        justify-content: left;
-    }
-
-    .formulario {
-        display: block;
-        width: 100%;
-    }
-
-    main h1 {
-        font-size: 30px;
-    }
-    /* MAIN FORM */
-}
-
-@media only screen and (max-width: 400px) {
-    /* MAIN */
-    .search input[type="text"] {
-        width: 100%;
-    }
-
-    .game {
-        width: 80px;
-    }
-
-    .game img {
-        width: 100%;
-        height: 120px;
-    }
-    /* MAIN */
-}
 
 /* PAGINACIÓN */
 .games .active > a {
@@ -347,3 +250,309 @@ select, option {
     background-color: #222222;
 }
 /* PAGINACIÓN */
+
+/* ADMIN */
+    /* HEADER */
+    header nav ul li.logout {
+        margin-left: 100px;
+    }
+    /* HEADER */
+
+    /* LOGIN */
+    .login {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .login p {
+        display: block;
+        margin: 20px auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    .login form {
+        display: block;
+        width: 250px;
+    }
+
+    .login label {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .login input {
+        display: block;
+        margin: 5px 0;
+        width: calc(100% - 4px);
+    }
+
+    .login input[type="submit"], .login input[type="reset"] {
+        display: inline-block;
+        margin: 10px 0 5px 0;
+        padding: 2px 0;
+        width: 100%;
+    }
+    /* LOGIN */
+
+    /* HOME */
+    summary {
+        display: inline-block;
+        margin-bottom: 10px;
+        line-height: 0;
+    }
+
+    .add {
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #eeeeee;
+    }
+
+    .new {
+        display: block;
+        margin-bottom: 30px;
+        padding: 15px;
+        max-width: 100%;
+        width: 350px;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        background-color: #333333;
+    }
+
+    .new label {
+        margin: 5px 0;
+    }
+
+    .new input[type="text"] {
+        margin: 5px 0;
+    }
+
+    .new input[type="file"] {
+        margin: 5px 5px 5px 0;
+    }
+
+    .new input[type="checkbox"] {
+        margin: 5px 5px 0 0;
+    }
+
+    table.admin, table.admin tr, table.admin th, table.admin td {
+        border: 1px solid #eeeeee;
+        border-collapse: collapse;
+    }
+
+    table.admin th, table.admin td {
+        padding: 10px;
+        color: #eeeeee;
+    }
+
+    .action {
+        display: inline-block;
+    }
+
+    .action input[type="submit"] {
+        margin-right: 10px;
+    }
+
+    .edit {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        background-size: 100%;
+        background-color: #ffff00;
+        background-image: url(../icons/pencil-square.svg);
+        background-repeat: no-repeat;
+    }
+
+    .delete {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        padding: 5px;
+        background-size: 100%;
+        background-color: #ff0000;
+        background-image: url(../icons/trash3-fill.svg);
+        background-repeat: no-repeat;
+    }
+    /* HOME */
+
+    /* DATATABLE */
+    .dataTables_length label select, .dataTables_filter label input, #DataTables_Table_0_info.dataTables_info {
+        color: #eeeeee !important;
+    }
+
+    #DataTables_Table_0_paginate.dataTables_paginate.paging_simple_numbers #DataTables_Table_0_previous.paginate_button.previous.disabled {
+        color: #eeeeee !important;
+    }
+
+    #DataTables_Table_0_paginate.dataTables_paginate.paging_simple_numbers #DataTables_Table_0_next.paginate_button.next.disabled {
+        color: #eeeeee !important;
+    }
+
+    #DataTables_Table_0_paginate.dataTables_paginate.paging_simple_numbers span .paginate_button {
+        color: #eeeeee !important;
+    }
+    /* DATATABLE */
+
+    /* EDITS */
+    .new input[type="submit"], .new input[type="reset"] {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 5px;
+        width: 49.4%;
+    }
+
+    .new input[type="button"] {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 5px;
+        width: 100%;
+    }
+
+    .new h2 {
+        display: block;
+        margin: 5px 0;
+        font-size: 25px;
+        color: #eeeeee;
+    }
+
+    .new hr {
+        margin-bottom: 10px;
+    }
+
+    .new .game {
+        display: block;
+        margin: 0 auto 10px auto;
+        border: 1px solid #000000;
+        position: static;
+    }
+    /* EDITS */
+/* ADMIN */
+
+@media only screen and (max-width: 1300px) {
+    /* MAIN */
+    .game {
+        width: 150px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 220px;
+    }
+    /* MAIN */
+}
+
+@media only screen and (max-width: 1000px) {
+    /* HEADER */
+    header nav span {
+        display: block;
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+    header nav ul {
+        display: none;
+    }
+
+    header nav ul.show {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    header nav ul.show li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    header nav ul.show li a {
+        display: block;
+        padding: 5px 10px;
+    }
+    /* HEADER */
+
+    /* MAIN */
+    main h1 {
+        font-size: 30px;
+    }
+
+    .game {
+        width: 100px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 150px;
+    }
+
+    .game p {
+        font-size: 10px;
+    }
+    /* MAIN */
+
+    /* MAIN FORM */
+    .formularios {
+        justify-content: left;
+    }
+
+    .formulario {
+        display: block;
+        margin: 10px 0;
+        padding: 0;
+        width: 100%;
+    }
+    /* MAIN FORM */
+
+    /* ADMIN */
+    header nav ul.show li.logout {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+    /* ADMIN */
+}
+
+@media only screen and (max-width: 400px) {
+    /* MAIN */
+    .search input[type="text"] {
+        width: 100%;
+    }
+
+    .game {
+        width: 80px;
+    }
+
+    .game img {
+        width: 100%;
+        height: 120px;
+    }
+    /* MAIN */
+
+    /* MAIN FORM */
+    .formulario h1 {
+        margin-bottom: 20px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0;
+    }
+
+    input[type="file"], input[type="text"] {
+        width: calc(100% - 4px);
+    }
+
+    select, option {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+    }
+    /* MAIN FORM */
+}

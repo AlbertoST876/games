@@ -8,37 +8,32 @@ use Games\Classes\Game;
  *
  * @return void
  */
-function obtenerJuegosListados(): void {
+function getListedGames(): void {
     $connect = new DB();
-    $result = $connect -> Select("SELECT id, nombre FROM games ORDER BY nombre ASC");
+    $result = $connect -> Select("SELECT id, name FROM games ORDER BY name ASC");
     
-    foreach ($result as $game) new Game($game["id"], $game["nombre"]);
+    foreach ($result as $game) new Game($game["id"], $game["name"]);
     
-    Game::mostrarTodosListados();
+    Game::showAllsListed();
 }
 
 /**
  * Reporta un juego mandando un mensaje que se almacena en la Base de Datos
  *
- * @param int $juego ID del juego
- * @param string $mensaje Mensaje del reporte
  * @return void
  */
-function reportarJuego(int $juego, string $mensaje): void {
-    if (empty($juego) || empty($mensaje)) {
+function reportGame(): void {
+    if (empty($_POST["game"]) || empty($_POST["message"])) {
         echo "<p>Faltan uno o mas campos por rellenar</p>";
     } else {
         $connect = new DB();
 
-        $mensaje = $connect -> clearString($mensaje);
+        $gameId = $_POST["game"];
+        $message = $connect -> clearString($_POST["message"]);
 
-        $result = $connect -> Insert("INSERT INTO reports (juego, mensaje) VALUES ('$juego', '$mensaje')");
+        $result = $connect -> Insert("INSERT INTO reports (game, message) VALUES ('$gameId', '$message')");
 
-        if ($result) {
-            echo "<p>Tu reporte se a enviado y será validado por un administrador, gracias</p>";
-        } else {
-            echo "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
-        }
+        echo $result ? "<p>Tu reporte se a enviado y será validado por un administrador, gracias</p>" : "<p>Ha ocurrido un error, inténtalo de nuevo mas tarde</p>";
     }
 }
 

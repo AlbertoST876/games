@@ -7,8 +7,8 @@ namespace Games\Classes;
  */
 class Game {
     private int $id;
-    private string $nombre;
-    private string $imagen;
+    private string $name;
+    private string $image;
     private string $torrent;
 
     private static array $games = [];
@@ -17,14 +17,14 @@ class Game {
      * Constructor del juego
      *
      * @param int $id ID del juego
-     * @param string $nombre Nombre del juego
-     * @param string $imagen Ruta de la imagen del juego
+     * @param string $name Nombre del juego
+     * @param string $image Ruta de la imagen del juego
      * @param string $torrent Ruta del torrent del juego
      */
-    public function __construct(int $id, string $nombre, string $imagen = "", string $torrent = "") {
+    public function __construct(int $id, string $name, string $image = "", string $torrent = "") {
         $this -> id = $id;
-        $this -> nombre = $nombre;
-        $this -> imagen = $imagen;
+        $this -> name = $name;
+        $this -> image = $image;
         $this -> torrent = $torrent;
 
         self::$games[] = $this;
@@ -44,8 +44,8 @@ class Game {
      *
      * @return string
      */
-    public function getNombre(): string {
-        return $this -> nombre;
+    public function getName(): string {
+        return $this -> name;
     }
 
     /**
@@ -53,8 +53,8 @@ class Game {
      *
      * @return string
      */
-    public function getRutaImagen(): string {
-        return $this -> imagen;
+    public function getPathImage(): string {
+        return $this -> image;
     }
 
     /**
@@ -62,7 +62,7 @@ class Game {
      *
      * @return string
      */
-    public function getRutaTorrent(): string {
+    public function getTorrentPath(): string {
         return $this -> torrent;
     }
 
@@ -71,8 +71,8 @@ class Game {
      *
      * @return void
      */
-    public static function mostrarTodos(): void {
-        foreach (self::$games as $game) $game -> mostrar();
+    public static function showAlls(): void {
+        foreach (self::$games as $game) $game -> show();
     }
 
     /**
@@ -80,8 +80,8 @@ class Game {
      *
      * @return void
      */
-    public static function mostrarTodosListados(): void {
-        foreach (self::$games as $game) $game -> mostrarListado();
+    public static function showAllsListed(): void {
+        foreach (self::$games as $game) $game -> showListed();
     }
 
     /**
@@ -89,8 +89,8 @@ class Game {
      *
      * @return void
      */
-    public function mostrar(): void {
-        echo "<div class='game'><a href=" . $this -> torrent . "><img src=" . $this -> imagen . "></a><p>" . $this -> nombre . "</p></div>";
+    public function show(): void {
+        echo "<div class='game'><a href='" . $this -> torrent . "'><img src='" . $this -> image . "'></a><p>" . $this -> name . "</p></div>";
     }
 
     /**
@@ -98,8 +98,8 @@ class Game {
      *
      * @return void
      */
-    public function mostrarListado(): void {
-        echo "<option value=" . $this -> id . ">" . $this -> nombre . "</option>";
+    public function showListed(): void {
+        echo "<option value='" . $this -> id . "'>" . $this -> name . "</option>";
     }
 }
 

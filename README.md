@@ -8,9 +8,17 @@ Puedes probarlo en vivo en mi sitio WEB **[https://albertost.sytes.net/apps/game
 
 ## Requisitos
 
+### Requisitos Mínimos
+
+- Apache v2.4.53
+- PHP v8.1.1
+- MySQL v8.0.25 o MariaDB v10.7.6
+
+### Requisitos Recomendados
+
 - Apache v2.4.54
-- PHP v8.1.9
-- MySQL v8.0.30 o MariaDB v10.8.4
+- PHP v8.1.11
+- MySQL v8.0.30 o MariaDB v10.9.3
 
 ## Instalación
 
@@ -25,9 +33,40 @@ La única configuración que hay que hacer en el propio código es establecer la
 
 Tranquilo, si no eres programador está comentado claramente el lugar donde rellenarlo manualmente con la configuración de su base de datos.
 
-También en el archivo de configuración de PHP (**php.ini**) hay que modificar estas configuraciones para el correcto funcionamiento de la subida de archivos.
+También en el archivo de configuración de PHP (**php.ini**) hay que modificar estas configuraciones para el correcto funcionamiento de la subida de archivos de la administración.
 
 ```ini
+;;;;;;;;;;;;;;;;;;;;;;
+; Dynamic Extensions ;
+;;;;;;;;;;;;;;;;;;;;;;
+
+;extension=bz2
+extension=curl
+;extension=ffi
+;extension=ftp
+extension=fileinfo
+extension=gd
+;extension=gettext
+;extension=gmp
+extension=intl
+;extension=imap
+;extension=ldap
+extension=mbstring
+;extension=exif      ; Must be after mbstring as it depends on it
+extension=mysqli
+;extension=oci8_12c  ; Use with Oracle Database 12c Instant Client
+;extension=oci8_19  ; Use with Oracle Database 19 Instant Client
+;extension=odbc
+extension=openssl
+;extension=pdo_firebird
+extension=pdo_mysql
+;extension=pdo_oci
+;extension=pdo_odbc
+;extension=pdo_pgsql
+;extension=pdo_sqlite
+;extension=pgsql
+;extension=shmop
+
 ;;;;;;;;;;;;;;;;
 ; File Uploads ;
 ;;;;;;;;;;;;;;;;
