@@ -38,6 +38,38 @@
 
         <main>
             <h1>Editor de Reportes</h1>
+
+            <?php
+                if (isset($_POST["save"])) modifyReport();
+
+                $reportEdit = getReportEdit();
+            ?>
+
+            <form class="new" action="./reportsEdit.php" method="POST">
+                <h2><?php echo $reportEdit["game"]; ?></h2>
+                <p><?php echo $reportEdit["message"]; ?></p>
+                <hr>
+
+                <div>
+                    <input type="checkbox" name="attended" <?php if (!is_null($reportEdit["attendedBy"])) echo "checked" ?>>
+                    <label for="resolved">Atendido</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="resolved" value="T" <?php if ($reportEdit["resolved"] == "T") echo "checked" ?>>
+                    <label for="resolved">Resuelto</label>
+                </div>
+
+                <div>
+                    <input type="hidden" name="reportId" value="<?php echo $reportEdit["id"]; ?>">
+                    <input type="submit" name="save" value="Guardar">
+                    <input type="reset" value="Cancelar">
+                </div>
+
+                <div>
+                    <a href="../reports.php"><input type="button" value="Volver"></a>
+                </div>
+            </form>
         </main>
     </body>
 </html>
