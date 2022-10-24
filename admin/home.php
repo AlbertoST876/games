@@ -38,6 +38,10 @@
 
         <main>
             <h1>Bienvenido <?php echo ucfirst($user -> getName()); ?></h1>
+
+            <?php if ($user -> getId() == 1) { ?>
+                <iframe src="../assets/pdf/APG.pdf" frameborder="0"></iframe>
+            <?php } ?>
         </main>
     </body>
 </html>

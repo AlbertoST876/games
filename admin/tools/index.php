@@ -19,11 +19,5 @@
         <title>AlbertoST Informática - Games - Administración</title>
     </head>
 
-    <body>
-        <header>
-            <nav>
-                <a href="./index.php"><img src="../../assets/icons/icon.png"></a>
-            </nav>
-        </header>
-    </body>
+    <body></body>
 </html>

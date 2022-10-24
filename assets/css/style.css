@@ -303,6 +303,12 @@ input[type="submit"], input[type="reset"] {
         line-height: 0;
     }
 
+    iframe {
+        display: block;
+        width: 100%;
+        height: 75vh;
+    }
+
     .add {
         display: block;
         width: 50px;
