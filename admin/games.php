@@ -21,14 +21,14 @@
         <!-- DATATABLE -->
         <script src="../assets/js/scripts.js"></script>
         <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="icon" href="../assets/icons/icon.png">
+        <link rel="icon" href="../assets/icon/icon.png">
         <title>AlbertoST Informática - Games - Administración</title>
     </head>
 
     <body>
         <header>
             <nav>
-                <a href="./index.php"><img src="../assets/icons/icon.png"></a>
+                <a href="./index.php"><img src="../assets/icon/icon.png"></a>
 
                 <span>Menu</span>
                 <ul>
@@ -47,7 +47,7 @@
 
             <?php if ($user -> havePermission(5)) { ?>
                 <details>
-                    <summary><img class="add" src="../assets/icons/plus.svg"></summary>
+                    <summary><img class="add" src="../assets/icon/plus.svg"></summary>
 
                     <form class="new" action="./games.php" method="POST" enctype="multipart/form-data">
                         <div>

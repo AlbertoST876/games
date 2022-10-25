@@ -15,14 +15,14 @@
         <!-- SELECT2 -->
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="icon" href="./assets/icons/icon.png">
+        <link rel="icon" href="./assets/icon/icon.png">
         <title>AlbertoST Informática - Games - Reportar</title>
     </head>
 
     <body>
         <header>
             <nav>
-                <a href="./index.php"><img src="./assets/icons/icon.png"></a>
+                <a href="./index.php"><img src="./assets/icon/icon.png"></a>
         
                 <span>Menu</span>
                 <ul>

@@ -369,7 +369,7 @@ input[type="submit"], input[type="reset"] {
         padding: 5px;
         background-size: 100%;
         background-color: #ffff00;
-        background-image: url(../icons/pencil-square.svg);
+        background-image: url(../icon/pencil-square.svg);
         background-repeat: no-repeat;
     }
 
@@ -380,7 +380,7 @@ input[type="submit"], input[type="reset"] {
         padding: 5px;
         background-size: 100%;
         background-color: #ff0000;
-        background-image: url(../icons/trash3-fill.svg);
+        background-image: url(../icon/trash3-fill.svg);
         background-repeat: no-repeat;
     }
     /* HOME */
