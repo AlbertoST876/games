@@ -6,6 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'e46ec304d5813c4e42100ef9b772802d' => $baseDir . '/src/functions/admin/tools/gamesEdit.php',
+    '47592019a25d7bfe78b672fd9717b703' => $baseDir . '/src/functions/admin/tools/reportsEdit.php',
+    '6bbca72fa5f413ee83628ec6af589588' => $baseDir . '/src/functions/admin/tools/restorePassword.php',
+    'a4252869a193b508b2f877254924d5bd' => $baseDir . '/src/functions/admin/tools/usersEdit.php',
     '15cdbb81faef8cce27a6ef5be7fafe3e' => $baseDir . '/src/functions/admin/checks.php',
     'b0ee56d47e667a4d026cd4782d30767a' => $baseDir . '/src/functions/admin/games.php',
     '1b7dcd0a39dda71f8d1a3754f22c2849' => $baseDir . '/src/functions/admin/login.php',

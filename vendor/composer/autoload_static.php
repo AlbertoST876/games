@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit458857328df16185244170031eb56b30
 {
     public static $files = array (
+        'e46ec304d5813c4e42100ef9b772802d' => __DIR__ . '/../..' . '/src/functions/admin/tools/gamesEdit.php',
+        '47592019a25d7bfe78b672fd9717b703' => __DIR__ . '/../..' . '/src/functions/admin/tools/reportsEdit.php',
+        '6bbca72fa5f413ee83628ec6af589588' => __DIR__ . '/../..' . '/src/functions/admin/tools/restorePassword.php',
+        'a4252869a193b508b2f877254924d5bd' => __DIR__ . '/../..' . '/src/functions/admin/tools/usersEdit.php',
         '15cdbb81faef8cce27a6ef5be7fafe3e' => __DIR__ . '/../..' . '/src/functions/admin/checks.php',
         'b0ee56d47e667a4d026cd4782d30767a' => __DIR__ . '/../..' . '/src/functions/admin/games.php',
         '1b7dcd0a39dda71f8d1a3754f22c2849' => __DIR__ . '/../..' . '/src/functions/admin/login.php',
