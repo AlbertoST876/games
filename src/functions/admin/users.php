@@ -12,7 +12,7 @@ function getListedPermissions(): void {
     $result = $connect -> Select("SELECT * FROM permissions");
 
     foreach ($result as $permission) {
-        if ($_SESSION["user"] -> havePermission($permission["id"])) echo "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "'><label for='permissions'>" . $permission["action"] . "</label></div>";
+        echo $_SESSION["user"] -> havePermission($permission["id"]) ? "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "'><label for='permissions'>" . $permission["action"] . "</label></div>" : "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "' disabled><label for='permissions'>" . $permission["action"] . "</label></div>";
     }
 }
 
@@ -121,9 +121,7 @@ function getUserEditPermissions(): void {
     $userEditPermissions = array_column($connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $_POST["userId"] . "'"), "permission");
 
     foreach ($result as $permission) {
-        if ($_SESSION["user"] -> havePermission($permission["id"])) {
-            echo "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "'" . userEditHasPermission($permission["id"], $userEditPermissions) . "><label for='permissions'>" . $permission["action"] . "</label></div>";
-        }
+        echo $_SESSION["user"] -> havePermission($permission["id"]) ? "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "' " . userEditHasPermission($permission["id"], $userEditPermissions) . "><label for='permissions'>" . $permission["action"] . "</label></div>" : "<div><input type='checkbox' name='permissions[]' value='" . $permission["id"] . "' disabled " . userEditHasPermission($permission["id"], $userEditPermissions) . "><label for='permissions'>" . $permission["action"] . "</label></div>";
     }
 }
 
@@ -135,7 +133,7 @@ function getUserEditPermissions(): void {
  * @return string
  */
 function userEditHasPermission(int $permissionId, array $userEditPermissions): string {
-    return in_array($permissionId, $userEditPermissions) ? " checked" : "";
+    return in_array($permissionId, $userEditPermissions) ? "checked" : "";
 }
 
 /**
@@ -157,10 +155,18 @@ function modifyUser(): void {
         $connect -> Update("UPDATE users SET password = '$newPassword', restorePassword = '" . $restorePassword . "' WHERE id = '" . $_POST["userId"] . "'");
     }
 
-    $connect -> Remove("DELETE FROM users_permissions WHERE user = '" . $_POST["userId"] . "'");
+    $permissions = array_column($connect -> Select("SELECT id FROM permissions"), "id");
+    $userEditPermissions = array_column($connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $_POST["userId"] . "'"), "permission");
 
     if (isset($_POST["permissions"])) {
-        foreach ($_POST["permissions"] as $permission) $connect -> Insert("INSERT INTO users_permissions (user, permission) VALUES ('" . $_POST["userId"] . "', '$permission')");
+        foreach ($permissions as $permission) {
+            if (in_array($permission, $userEditPermissions) && !in_array($permission, $_POST["permissions"]) && $_SESSION["user"] -> havePermission($permission)) $connect -> Remove("DELETE FROM users_permissions WHERE user = '" . $_POST["userId"] . "' AND permission = '$permission'");
+            if (!in_array($permission, $userEditPermissions) && in_array($permission, $_POST["permissions"]) && $_SESSION["user"] -> havePermission($permission)) $connect -> Insert("INSERT INTO users_permissions (user, permission) VALUES ('" . $_POST["userId"] . "', '$permission')");
+        }
+    } else {
+        foreach ($permissions as $permission) {
+            if (in_array($permission, $userEditPermissions) && $_SESSION["user"] -> havePermission($permission)) $connect -> Remove("DELETE FROM users_permissions WHERE user = '" . $_POST["userId"] . "' AND permission = '$permission'");
+        }
     }
 }
 

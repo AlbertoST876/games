@@ -61,13 +61,8 @@ class User {
      */
     private function getPermissions(): void {
         $connect = new DB();
-        $result = $connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $this -> id . "'");
 
-        $array = [];
-
-        foreach ($result as $permission) $array[] = $permission["permission"];
-
-        $this -> permissions = $array;
+        $this -> permissions = array_column($connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $this -> id . "'"), "permission");
     }
 
     /**
