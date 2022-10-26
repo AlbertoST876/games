@@ -5,7 +5,7 @@
     "type": "project",
     "license": "GPL-3.0-only",
     "minimum-stability": "dev",
-    "time": "2022-10-25 13:40:00",
+    "time": "2022-10-26 23:40:00",
     "homepage": "https://albertost.sytes.net/apps/games/",
     "authors": [
         {
@@ -28,6 +28,10 @@
             "Games\\Classes\\": "src/classes/"
         },
         "files": [
+            "src/functions/admin/tools/gamesEdit.php",
+            "src/functions/admin/tools/reportsEdit.php",
+            "src/functions/admin/tools/restorePassword.php",
+            "src/functions/admin/tools/usersEdit.php",
             "src/functions/admin/checks.php",
             "src/functions/admin/games.php",
             "src/functions/admin/login.php",
@@ -43,6 +47,10 @@
             "Games\\Classes\\": "src/classes/"
         },
         "files": [
+            "src/functions/admin/tools/gamesEdit.php",
+            "src/functions/admin/tools/reportsEdit.php",
+            "src/functions/admin/tools/restorePassword.php",
+            "src/functions/admin/tools/usersEdit.php",
             "src/functions/admin/checks.php",
             "src/functions/admin/games.php",
             "src/functions/admin/login.php",
