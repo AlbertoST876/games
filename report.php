@@ -53,7 +53,7 @@
                         </div>
 
                         <div>
-                            <input type="text" name="message" maxlength="255" required>
+                            <textarea name="message" maxlength="255"></textarea>
                         </div>
 
                         <div>
