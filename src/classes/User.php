@@ -20,11 +20,12 @@ class User {
      * @param string $password Contraseña del Usuario
      */
     public function __construct(int $id, string $name, string $password) {
+        $connect = new DB();
+
         $this -> id = $id;
         $this -> name = $name;
         $this -> password = $password;
-
-        $this -> getPermissions();
+        $this -> permissions = array_column($connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $this -> id . "'"), "permission");
     }
 
     /**
@@ -55,14 +56,12 @@ class User {
     }
 
     /**
-     * Establece los permisos del Usuario
+     * Obtiene los permisos del Usuario
      *
      * @return void
      */
-    private function getPermissions(): void {
-        $connect = new DB();
-
-        $this -> permissions = array_column($connect -> Select("SELECT permission FROM users_permissions WHERE user = '" . $this -> id . "'"), "permission");
+    private function getPermissions(): array {
+        return $this -> permissions;
     }
 
     /**
