@@ -521,10 +521,18 @@ input[type="submit"], input[type="reset"] {
     /* MAIN FORM */
 
     /* ADMIN */
-    header nav ul.show li.logout {
-        margin-left: 0;
-        margin-top: 50px;
-    }
+        /* HEADER */
+        header nav ul.show li.logout {
+            margin-left: 0;
+            margin-top: 50px;
+        }
+        /* HEADER */
+
+        /* HOME */
+        iframe {
+            height: 80vh;
+        }
+        /* HOME */
     /* ADMIN */
 }
 
@@ -568,4 +576,12 @@ input[type="submit"], input[type="reset"] {
         width: 100%;
     }
     /* MAIN FORM */
+
+    /* ADMIN */
+        /* HOME */
+        iframe {
+            height: 65vh;
+        }
+        /* HOME */
+    /* ADMIN */
 }

@@ -1,11 +1,11 @@
 {
     "name": "albertost876/games",
     "description": "Brind Crack Games to the WEB",
-    "version": "2.1.0-dev",
+    "version": "2.1.0-stable",
     "type": "project",
     "license": "GPL-3.0-only",
-    "minimum-stability": "dev",
-    "time": "2022-10-27 13:10:00",
+    "minimum-stability": "stable",
+    "time": "2022-10-27 22:00:00",
     "homepage": "https://albertost.sytes.net/apps/games/",
     "authors": [
         {
