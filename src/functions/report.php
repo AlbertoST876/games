@@ -14,7 +14,7 @@ function getListedGames(): void {
     
     foreach ($result as $game) new Game($game["id"], $game["name"]);
     
-    Game::showAllsListed();
+    Game::showAllListed();
 }
 
 /**

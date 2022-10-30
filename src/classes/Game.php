@@ -71,7 +71,7 @@ class Game {
      *
      * @return void
      */
-    public static function showAlls(): void {
+    public static function showAll(): void {
         foreach (self::$games as $game) $game -> show();
     }
 
@@ -80,7 +80,7 @@ class Game {
      *
      * @return void
      */
-    public static function showAllsListed(): void {
+    public static function showAllListed(): void {
         foreach (self::$games as $game) $game -> showListed();
     }
 

@@ -14,7 +14,7 @@ function getGames(): void {
     
     foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
 
-    Game::showAlls();
+    Game::showAll();
 }
 
 /**
@@ -28,7 +28,7 @@ function getFeaturedGames(): void {
 
     foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
 
-    Game::showAlls();
+    Game::showAll();
 }
 
 /**
@@ -48,7 +48,7 @@ function getPaginatedGames(int $amount = 18): void {
 
     foreach ($result as $game) new Game($game["id"], $game["name"], $game["image"], $game["torrent"]);
     
-    Game::showAlls();
+    Game::showAll();
 
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;
