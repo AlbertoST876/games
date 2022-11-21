@@ -57,7 +57,7 @@
                         </div>
 
                         <div>
-                            <input type="submit" name="report" value="Enviar">
+                            <input type="submit" name="report" value="Enviar" onclick="return confirm('¿Estás seguro de que quieres enviar este reporte?');">
                             <input type="reset" value="Cancelar">
                         </div>
                     </form>

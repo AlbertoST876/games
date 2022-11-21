@@ -56,7 +56,7 @@ function getUsersActions(int $userId): string {
     $string = "";
 
     if ($_SESSION["user"] -> havePermission(6) && $_SESSION["user"] -> getId() != $userId && $userId != 1) $string .= "<form class='action' action='./tools/usersEdit.php' method='POST'><input type='hidden' name='userId' value='$userId'><input class='edit' type='submit' name='edit' value=''></form>";
-    if ($_SESSION["user"] -> havePermission(8) && $_SESSION["user"] -> getId() != $userId && $userId != 1) $string .= "<form class='action' action='./users.php' method='POST'><input type='hidden' name='userId' value='$userId'><input class='delete' type='submit' name='delete' value=''></form>";
+    if ($_SESSION["user"] -> havePermission(8) && $_SESSION["user"] -> getId() != $userId && $userId != 1) $string .= "<form class='action' action='./users.php' method='POST'><input type='hidden' name='userId' value='$userId'><input class='delete' type='submit' name='delete' value='' onclick='return confirm(\"¿Estás seguro de que quieres eliminar este usuario?\");'></form>";
 
     return $string;
 }

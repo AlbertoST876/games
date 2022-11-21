@@ -80,7 +80,7 @@
                     <input type="hidden" name="imagePath" value="<?php echo $gameEdit["image"]; ?>">
                     <input type="hidden" name="torrentPath" value="<?php echo $gameEdit["torrent"]; ?>">
                     <input type="hidden" name="gameId" value="<?php echo $gameEdit["id"]; ?>">
-                    <input type="submit" name="save" value="Guardar">
+                    <input type="submit" name="save" value="Guardar" onclick="return confirm('¿Estás seguro de que quieres editar este juego?');">
                     <input type="reset" value="Cancelar">
                 </div>
 

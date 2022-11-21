@@ -52,7 +52,7 @@ function getGamesActions(int $gameId): string {
     $string = "";
 
     if ($_SESSION["user"] -> havePermission(7)) $string .= "<form class='action' action='./tools/gamesEdit.php' method='POST'><input type='hidden' name='gameId' value='$gameId'><input class='edit' type='submit' name='edit' value=''></form>";
-    if ($_SESSION["user"] -> havePermission(9)) $string .= "<form class='action' action='./games.php' method='POST'><input type='hidden' name='gameId' value='$gameId'><input class='delete' type='submit' name='delete' value=''></form>";
+    if ($_SESSION["user"] -> havePermission(9)) $string .= "<form class='action' action='./games.php' method='POST'><input type='hidden' name='gameId' value='$gameId'><input class='delete' type='submit' name='delete' value='' onclick='return confirm(\"¿Estás seguro de que quieres eliminar este juego?\");'></form>";
 
     return $string;
 }

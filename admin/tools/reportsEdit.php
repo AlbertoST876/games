@@ -62,7 +62,7 @@
 
                 <div>
                     <input type="hidden" name="reportId" value="<?php echo $reportEdit["id"]; ?>">
-                    <input type="submit" name="save" value="Guardar">
+                    <input type="submit" name="save" value="Guardar" onclick="return confirm('¿Estás seguro de que quieres guardar el estado del reporte?');">
                     <input type="reset" value="Cancelar">
                 </div>
 

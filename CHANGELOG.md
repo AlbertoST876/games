@@ -1,3 +1,13 @@
+# 2.1.2
+
+- Añadida una confirmación antes de editar o eliminar un usuario o juego.
+- Añadida una confirmación al guardar el estado de un reporte.
+- Añadida una confirmación antes de enviar un reporte.
+
+# 2.1.1
+
+- Corrección del nombre de algunas funciones.
+
 # 2.1.0
 
 - La búsqueda de juegos ahora se hará desde la misma página **"games.php"** (antes **"search.php"**).

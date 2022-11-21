@@ -72,7 +72,7 @@
 
                 <div>
                     <input type="hidden" name="userId" value="<?php echo $userEdit["id"]; ?>">
-                    <input type="submit" name="save" value="Guardar">
+                    <input type="submit" name="save" value="Guardar" onclick="return confirm('¿Estás seguro de que quieres editar este usuario?');">
                     <input type="reset" value="Cancelar">
                 </div>
 
