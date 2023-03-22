@@ -1,3 +1,8 @@
+# 2.2.0
+
+- La librería **Select2** ha sido sustituida por la librería **Nice-Select2**.
+- La librería **DataTables** ya no usa **JQuery** para llamarse.
+
 # 2.1.2
 
 - Añadida una confirmación antes de editar o eliminar un usuario o juego.

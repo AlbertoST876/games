@@ -7,12 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alberto Sánchez Torreblanca">
-        <!-- SELECT2 -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.full.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
-        <script src="./assets/js/select2.js"></script>
-        <!-- SELECT2 -->
+        <!-- NICE-SELECT2 -->
+        <script src="./assets/js/nice-select2_2.1.0.js"></script>
+        <link rel="stylesheet" href="./assets/css/nice-select2_2.1.0.css">
+        <!-- NICE-SELECT2 -->
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="icon" href="./assets/icon/icon.png">

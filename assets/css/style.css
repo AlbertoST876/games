@@ -199,12 +199,6 @@ textarea {
     resize: none;
 }
 
-select, option {
-    display: inline-block;
-    margin: 10px 0;
-    color: #000000;
-}
-
 input[type="submit"], input[type="reset"] {
     display: inline-block;
     margin: 10px 0;

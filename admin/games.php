@@ -14,10 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alberto Sánchez Torreblanca">
         <!-- DATATABLE -->
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-        <script src="../assets/js/dataTables.js"></script>
         <!-- DATATABLE -->
         <script src="../assets/js/scripts.js"></script>
         <link rel="stylesheet" href="../assets/css/style.css">
