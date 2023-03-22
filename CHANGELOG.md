@@ -1,3 +1,7 @@
+# 2.2.1
+
+- Corrección de rutas en la carga de las librerías.
+
 # 2.2.0
 
 - La librería **Select2** ha sido sustituida por la librería **Nice-Select2**.

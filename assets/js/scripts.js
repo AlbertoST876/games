@@ -6,11 +6,11 @@ window.onload = function() {
         menu.classList.toggle("show");
     };
     
-    if (window.location.pathname == "/admin/users.php" || window.location.pathname == "/admin/games.php" || window.location.pathname == "/admin/reports.php") {
+    if (typeof DataTable == "function") {
         new DataTable(".dataTable");
     }
 
-    if (window.location.pathname == "/report.php") {
+    if (typeof NiceSelect != "undefined") {
         NiceSelect.bind(document.querySelector(".select2"), {searchable: true});
     }
 };
