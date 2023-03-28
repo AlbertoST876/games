@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Alberto Sánchez Torreblanca">
         <!-- NICE-SELECT2 -->
-        <script src="./assets/js/nice-select2_2.1.0.js"></script>
-        <link rel="stylesheet" href="./assets/css/nice-select2_2.1.0.css">
+        <script src="https://cdn.jsdelivr.net/npm/nice-select2/dist/js/nice-select2.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nice-select2/dist/css/nice-select2.min.css">
         <!-- NICE-SELECT2 -->
         <script src="./assets/js/scripts.js"></script>
         <link rel="stylesheet" href="./assets/css/style.css">
@@ -36,10 +36,10 @@
                 <div class="formulario">
                     <h1>Reportar un Juego</h1>
 
-                    <form action="./report.php" method="POST" enctype="application/x-www-form-urlencoded">
+                    <form action="./report.php" method="POST">
                         <div>
                             <label for="game">Nombre del Juego:</label>
-                            <select name="game" class="select2" required>
+                            <select class="select2" name="game" required>
                                 <option selected disabled hidden>Selecciona un Juego</option>
 
                                 <?php getListedGames(); ?>

@@ -1,3 +1,8 @@
+# 2.2.2
+
+- La librería **Nice-Select2** ahora se carga desde la nube.
+- Aplicados estilos personalizados a **Nice-Select2** desde JavaScript.
+
 # 2.2.1
 
 - Corrección de rutas en la carga de las librerías.
