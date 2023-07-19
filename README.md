@@ -16,9 +16,9 @@ Puedes probarlo en vivo en mi sitio WEB **[https://albertost.sytes.net/apps/game
 
 ### Requisitos Recomendados
 
-- Apache v2.4.54
-- PHP v8.1.11
-- MySQL v8.0.30 o MariaDB v10.9.3
+- Apache v2.4.55
+- PHP v8.2.4
+- MySQL v8.0.32 o MariaDB v11.0.2
 
 ## Instalación
 

@@ -40,7 +40,7 @@ function getFeaturedGames(): void {
 function getPaginatedGames(int $amount = 18): void {
     $connect = new DB();
 
-    $compag = !isset($_GET["pag"]) ? 1 : $_GET["pag"];
+    $compag = !isset($_GET["page"]) ? 1 : $_GET["page"];
 
     $TotalRegistro = ceil(count($connect -> Select("SELECT id FROM games")) / $amount);
 
@@ -53,7 +53,7 @@ function getPaginatedGames(int $amount = 18): void {
     $IncrimentNum = $TotalRegistro >= ($compag + 1) ? $compag + 1 : 1;
     $DecrementNum = 1 > ($compag - 1) ? 1 : $compag - 1;
     
-    echo "<ul><li class='btn'><a href='?pag=" . $DecrementNum . "'>◀</a></li>";
+    echo "<ul><li class='btn'><a href='?page=" . $DecrementNum . "'>◀</a></li>";
     
     $Desde = $compag - (ceil($amount / 2) - 1);
     $Hasta = $compag + (ceil($amount / 2) - 1);
@@ -63,11 +63,11 @@ function getPaginatedGames(int $amount = 18): void {
     
     for ($i = $Desde; $i <= $Hasta; $i++) {
         if ($i <= $TotalRegistro) {
-            echo $i == $compag ? "<li class='active'><a href='?pag=" . $i . "'>" . $i . "</a></li>" : "<li><a href='?pag=" . $i . "'>" . $i . "</a></li>";
+            echo $i == $compag ? "<li class='active'><a href='?page=" . $i . "'>" . $i . "</a></li>" : "<li><a href='?page=" . $i . "'>" . $i . "</a></li>";
         }
     }
     
-    echo "<li class='btn'><a href='?pag=" . $IncrimentNum . "'>▶</a></li></ul>";
+    echo "<li class='btn'><a href='?page=" . $IncrimentNum . "'>▶</a></li></ul>";
 }
 
 ?>
