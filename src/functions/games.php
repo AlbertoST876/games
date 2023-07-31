@@ -38,6 +38,10 @@ function getFeaturedGames(): void {
  * @return void
  */
 function getPaginatedGames(int $amount = 18): void {
+    if (isset($_GET["page"])) {
+        if ($_GET["page"] < 1) header("Location: ./games.php");
+    }
+    
     $connect = new DB();
 
     $compag = !isset($_GET["page"]) ? 1 : $_GET["page"];

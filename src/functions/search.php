@@ -34,6 +34,10 @@ function searchPaginatedGames(int $amount = 18): void {
     if (empty($_GET["game"])) {
         echo "<p>Debe rellenar el campo de búsqueda</p>";
     } else {
+        if (isset($_GET["page"])) {
+            if ($_GET["page"] < 1) header("Location: ./games.php?game=" . $_GET["game"]);
+        }
+
         $connect = new DB();
 
         $gameName = $connect -> clearString($_GET["game"]);

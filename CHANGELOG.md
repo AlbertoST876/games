@@ -1,3 +1,12 @@
+# 2.2.4
+
+- Corregido que se puedan meter paginas menores que 1 en la paginación.
+
+# 2.2.3
+
+- Se han actualizado los requisitos recomendados.
+- La variable de la paginación de la página de los juegos, se ha cambiado de "pag" a "page".
+
 # 2.2.2
 
 - La librería **Nice-Select2** ahora se carga desde la nube.
