@@ -1,6 +1,11 @@
+# 2.2.5
+
+- Se han actualizado los requisitos recomendados.
+- Cambiada redirección en las páginas menores que 1.
+
 # 2.2.4
 
-- Corregido que se puedan meter paginas menores que 1 en la paginación.
+- Corregido que se puedan meter páginas menores que 1 en la paginación.
 
 # 2.2.3
 
